@@ -228,7 +228,7 @@
   .deep-section { background: var(--deep-water); color: var(--foam); }
   .deep-section .section-shell { padding-top: 5rem; }
   .deep-intro { max-width: 54rem; }
-  .deep-intro h2 { margin: 1.6rem 0 1.5rem; font-size: clamp(2.7rem, 5.5vw, 4.7rem); line-height: .98; }
+  .deep-intro h2 { margin: 1.6rem 0 1.5rem; font-size: clamp(2.7rem, 5.5vw, 4.7rem); line-height: 1.1; }
   .deep-intro > p:last-child { max-width: 43rem; color: color-mix(in oklab, var(--foam) 72%, transparent); line-height: 1.75; }
   .benefit-grid { display: grid; grid-template-columns: repeat(2, 1fr); margin-top: 4rem; border-top: 1px solid color-mix(in oklab, var(--foam) 18%, transparent); }
   .benefit-item { display: grid; grid-template-columns: 3rem 1fr; gap: 1rem; padding: 2rem 1rem 2rem 0; border-bottom: 1px solid color-mix(in oklab, var(--foam) 18%, transparent); }
