@@ -9,7 +9,6 @@ import {
   Heart,
   Instagram,
   Mail,
-  MapPin,
   MessageCircle,
   Play,
   Sparkles,
