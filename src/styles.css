@@ -275,7 +275,7 @@
   .portrait-rings { position: absolute; width: 18rem; height: 18rem; border: 1px solid color-mix(in oklab, var(--deep-water) 14%, transparent); border-radius: 50%; z-index: -1; }
   .portrait-rings::before, .portrait-rings::after { content: ""; position: absolute; border: 1px solid color-mix(in oklab, var(--deep-water) 12%, transparent); border-radius: 50%; }
   .portrait-rings::before { inset: 2rem; } .portrait-rings::after { inset: 4rem; }
-  .guide-copy h2 { margin-top: 1rem; font-size: clamp(3.4rem, 6vw, 5.6rem); line-height: 1; }
+  .guide-copy h2 { margin-top: 1rem; font-size: clamp(3.4rem, 6vw, 5.6rem); line-height: 1.1; }
   .guide-role { margin: .4rem 0 1.7rem; color: var(--gold); font-size: .73rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
   .guide-copy > p:not(.section-label):not(.guide-role) { max-width: 35rem; color: var(--muted-foreground); line-height: 1.85; }
   .guide-signature { margin-top: 2rem; font-family: var(--font-serif); font-size: 1.5rem; font-style: italic; }
