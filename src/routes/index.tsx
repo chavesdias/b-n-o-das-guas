@@ -17,7 +17,6 @@ import {
 } from "lucide-react";
 
 import mountainsImage from "@/assets/titicaca-mountains.jpg.asset.json";
-import gardenImage from "@/assets/titicaca-garden.jpeg.asset.json";
 import leavesImage from "@/assets/titicaca-leaves.jpeg.asset.json";
 import labyrinthImage from "@/assets/titicaca-labyrinth.jpeg.asset.json";
 import chakanaImage from "@/assets/titicaca-chakana.jpeg.asset.json";
@@ -67,6 +66,25 @@ const audienceItems = [
   "Para quem quer curar a relação com a mãe e a ancestralidade materna",
   "Para quem quer encontrar a própria voz",
   "Para quem deseja viver mais no fluxo, em harmonia com os ritmos naturais da Terra",
+];
+
+// Depoimentos: troque [Nome] e [Cidade] depois de pedir autorização a cada pessoa.
+const testimonials = [
+  {
+    text: "Iniciei muito inquieta, sentindo várias coisas me incomodando. Com o tempo fui me entregando para a respiração e… não sei para onde fui. Terminei plena. Há muito tempo não tinha essa sensação.",
+    name: "[Nome]",
+    city: "[Cidade]",
+  },
+  {
+    text: "Me sinto mais serena. Reajo menos, compreendo mais. Antigas dores começam a perder a intensidade e reconto a minha história. Hoje sinto mais luz e fluidez, na minha casa externa e na interna também.",
+    name: "[Nome]",
+    city: "[Cidade]",
+  },
+  {
+    text: "Estou sentindo novos caminhos se abrindo. Parecia que antes estava tudo bloqueado, eu não conseguia enxergar perspectivas futuras. Agora os caminhos estão se abrindo de novo.",
+    name: "[Nome]",
+    city: "[Cidade]",
+  },
 ];
 
 const faqItems = [
@@ -121,8 +139,8 @@ function Index() {
     <main className="overflow-hidden bg-background text-foreground">
       <section className="hero-section">
         <img
-          src={gardenImage.url}
-          alt="Jardim sagrado diante das águas do Lago Titicaca"
+          src="/titicaca-lago.jpg"
+          alt="Margem de pedras e águas azuis do Lago Titicaca"
           className="hero-image"
           width={1920}
           height={1280}
@@ -285,14 +303,13 @@ function Index() {
 
       <section className="section-shell testimonials-section">
         <SectionLabel>Depoimentos</SectionLabel>
-        <h2>Experiências que atravessaram outras águas</h2>
-        <p className="demo-note">Espaço reservado para depoimentos reais de participantes.</p>
+        <h2>O que dizem de quem já viveu o trabalho da Alice</h2>
         <div className="testimonial-grid">
-          {[1, 2, 3].map((item) => (
-            <blockquote key={item}>
+          {testimonials.map((item) => (
+            <blockquote key={item.text}>
               <Sparkles aria-hidden="true" size={20} strokeWidth={1.3} />
-              <p>“Insira aqui um depoimento breve e verdadeiro sobre a experiência com Alice.”</p>
-              <footer>Nome da participante <span>· Cidade</span></footer>
+              <p>“{item.text}”</p>
+              <footer>{item.name} <span>· {item.city}</span></footer>
             </blockquote>
           ))}
         </div>
@@ -300,11 +317,13 @@ function Index() {
 
       <section className="guide-section">
         <div className="section-shell guide-grid">
-          <div className="portrait-placeholder" role="img" aria-label="Espaço reservado para foto de Alice Chaves">
-            <div className="portrait-rings" />
-            <Waves aria-hidden="true" size={46} strokeWidth={0.9} />
-            <span>Foto de Alice Chaves</span>
-          </div>
+          <img
+            src="/alice-lago.jpg"
+            alt="Alice Chaves sorrindo, com o Lago Titicaca ao fundo"
+            className="portrait-photo"
+            style={{ objectPosition: "60% 30%" }}
+            loading="lazy"
+          />
           <div className="guide-copy">
             <SectionLabel>Quem conduz</SectionLabel>
             <h2>Alice Chaves</h2>
