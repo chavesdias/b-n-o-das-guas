@@ -16,10 +16,11 @@ import {
   Waves,
 } from "lucide-react";
 
-import heroImage from "@/assets/titicaca-hero.jpg";
-import reedsImage from "@/assets/titicaca-reeds.jpg";
-import ripplesImage from "@/assets/titicaca-ripples.jpg";
-import stonesImage from "@/assets/titicaca-stones.jpg";
+import mountainsImage from "@/assets/titicaca-mountains.jpg.asset.json";
+import gardenImage from "@/assets/titicaca-garden.jpeg.asset.json";
+import leavesImage from "@/assets/titicaca-leaves.jpeg.asset.json";
+import labyrinthImage from "@/assets/titicaca-labyrinth.jpeg.asset.json";
+import chakanaImage from "@/assets/titicaca-chakana.jpeg.asset.json";
 
 const paymentLink = "[LINK DE PAGAMENTO]";
 const youtubeLink = "[LINK DO YOUTUBE]";
@@ -120,8 +121,8 @@ function Index() {
     <main className="overflow-hidden bg-background text-foreground">
       <section className="hero-section">
         <img
-          src={heroImage}
-          alt="Águas serenas e montanhas do Lago Titicaca ao amanhecer"
+          src={gardenImage.url}
+          alt="Jardim sagrado diante das águas do Lago Titicaca"
           className="hero-image"
           width={1920}
           height={1280}
@@ -173,7 +174,14 @@ function Index() {
       <section className="section-shell origin-section">
         <div className="content-grid">
           <div className="video-placeholder">
-            <div className="video-water-texture" />
+            <img
+              src={leavesImage.url}
+              alt="Folhas sagradas diante das águas do Lago Titicaca"
+              className="video-water-texture"
+              loading="lazy"
+              width={1024}
+              height={1280}
+            />
             <a href={youtubeLink} target="_blank" rel="noreferrer" aria-label="Assistir ao vídeo no YouTube">
               <span className="play-button"><Play aria-hidden="true" size={24} fill="currentColor" /></span>
               <span>Assistir à mensagem de Alice</span>
@@ -199,13 +207,13 @@ function Index() {
 
         <div className="water-gallery" aria-label="Águas e paisagens do Lago Titicaca">
           <figure className="gallery-tall">
-            <img src={ripplesImage} alt="Reflexos dourados nas águas do Titicaca" loading="lazy" width={1024} height={1280} />
+            <img src={labyrinthImage.url} alt="Labirinto ritual diante do Lago Titicaca" loading="lazy" width={1024} height={1280} />
           </figure>
           <figure className="gallery-wide">
-            <img src={reedsImage} alt="Ilha de juncos e montanhas no Lago Titicaca" loading="lazy" width={1280} height={960} />
+            <img src={mountainsImage.url} alt="Cordilheira andina sob nuvens profundas" loading="lazy" width={768} height={1024} />
           </figure>
           <figure className="gallery-small">
-            <img src={stonesImage} alt="Pedras ancestrais às margens das águas" loading="lazy" width={1024} height={1280} />
+            <img src={chakanaImage.url} alt="Chakana de pedra às margens do Titicaca" loading="lazy" width={1024} height={1280} />
           </figure>
         </div>
       </section>
