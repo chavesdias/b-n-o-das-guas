@@ -330,7 +330,7 @@
   .hero-image { object-position: 60% center; }
   .hero-overlay { background: linear-gradient(0deg, color-mix(in oklab, var(--deep-water) 90%, transparent) 0%, color-mix(in oklab, var(--deep-water) 54%, transparent) 70%, color-mix(in oklab, var(--deep-water) 30%, transparent) 100%); }
   .hero-copy { padding-top: 5rem; }
-  .hero-copy h1 { font-size: clamp(4rem, 21vw, 6rem); }
+  .hero-copy h1 { font-size: clamp(2.75rem, 12vw, 6rem); }
   .hero-date { align-items: flex-start; }
   .hero-date i { display: none; }
   .hero-date span { width: calc(100% - 2rem); }
