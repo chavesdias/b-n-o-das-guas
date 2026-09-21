@@ -166,7 +166,7 @@
 
   html { scroll-behavior: smooth; }
 
-  h1, h2, h3 { font-family: var(--font-serif); font-weight: 500; letter-spacing: 0; }
+  h1, h2, h3 { font-family: var(--font-serif); font-weight: 400; letter-spacing: 0; }
 
   ::selection { background: var(--lagoon-soft); color: var(--deep-water); }
 }
