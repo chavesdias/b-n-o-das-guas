@@ -284,7 +284,7 @@
   .details-grid article { min-height: 15rem; display: flex; flex-direction: column; padding: 1.5rem; border-right: 1px solid var(--border); border-bottom: 1px solid var(--border); }
   .details-grid svg { color: var(--lagoon); stroke-width: 1.2; }
   .details-grid span { margin-top: auto; color: var(--gold); font-size: .68rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
-  .details-grid strong { margin-top: .6rem; font-family: var(--font-serif); font-size: 1.15rem; font-weight: 500; line-height: 1.5; }
+  .details-grid strong { margin-top: .6rem; font-family: var(--font-serif); font-size: 1.15rem; font-weight: 400; line-height: 1.5; }
 
   .investment-section { padding-block: 7rem; background: var(--deep-water); color: var(--foam); text-align: center; }
   .investment-section .section-shell { padding-block: 0; }
@@ -296,7 +296,7 @@
   .price-card > p:first-of-type { color: var(--gold); font-size: .72rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
   .price { display: flex; align-items: flex-start; margin-top: 2rem; font-family: var(--font-serif); }
   .price small { margin-top: .8rem; font-size: 1.25rem; }
-  .price strong { font-size: 5.2rem; font-weight: 500; line-height: .9; }
+  .price strong { font-size: 5.2rem; font-weight: 400; line-height: .9; }
   .price-card > span:not(.availability) { margin-top: .5rem; color: var(--muted-foreground); font-size: .8rem; }
   .price-card .button-sacred { margin-top: auto; }
   .later-note { margin-top: auto; color: color-mix(in oklab, var(--foam) 56%, transparent); font-size: .83rem; line-height: 1.6; }
