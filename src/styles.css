@@ -214,7 +214,7 @@
   .video-placeholder > a { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1.2rem; color: var(--foam); font-size: .75rem; text-transform: uppercase; letter-spacing: .12em; }
   .play-button { width: 4.5rem; height: 4.5rem; display: grid; place-items: center; border: 1px solid color-mix(in oklab, var(--foam) 70%, transparent); border-radius: 50%; backdrop-filter: blur(8px); transition: transform .3s ease, background .3s ease; }
   .video-placeholder a:hover .play-button { transform: scale(1.08); background: color-mix(in oklab, var(--foam) 15%, transparent); }
-  .origin-copy h2, .journey-heading h2, .audience-title h2, .testimonials-section > h2, .details-heading h2, .investment-section h2, .faq-heading h2 { margin: 1.4rem 0 1.8rem; font-size: clamp(2.5rem, 4.5vw, 4.2rem); line-height: 1; text-wrap: balance; }
+  .origin-copy h2, .journey-heading h2, .audience-title h2, .testimonials-section > h2, .details-heading h2, .investment-section h2, .faq-heading h2 { margin: 1.4rem 0 1.8rem; font-size: clamp(2.5rem, 4.5vw, 4.2rem); line-height: 1.1; text-wrap: balance; }
   .origin-copy > p:not(.section-label) { margin-top: 1.2rem; color: var(--muted-foreground); line-height: 1.85; }
   .origin-copy .origin-highlight { color: var(--deep-water); font-family: var(--font-serif); font-size: 1.45rem; line-height: 1.45; }
   .water-gallery { display: grid; grid-template-columns: 1fr 1.25fr .8fr; grid-template-rows: 14rem 13rem; gap: 1rem; margin-top: 7rem; }
