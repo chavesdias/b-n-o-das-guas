@@ -199,7 +199,7 @@
   .identification-section { text-align: center; }
   .narrow-copy { max-width: 53rem; margin-inline: auto; }
   .narrow-copy .section-label { justify-content: center; }
-  .narrow-copy h2 { margin: 1.6rem auto 2.6rem; font-size: clamp(2.4rem, 5vw, 4rem); line-height: 1.02; text-wrap: balance; }
+  .narrow-copy h2 { margin: 1.6rem auto 2.6rem; font-size: clamp(2.4rem, 5vw, 4rem); line-height: 1.1; text-wrap: balance; }
   .questions-list { color: var(--muted-foreground); font-size: 1.05rem; line-height: 1.8; }
   .closing-line { margin-top: 2.5rem; color: var(--lagoon); font-family: var(--font-serif); font-size: 1.55rem; font-style: italic; }
   .wave-divider { position: relative; height: 4rem; background: var(--background); overflow: hidden; }
