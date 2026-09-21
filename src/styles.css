@@ -168,7 +168,7 @@
 
   html { scroll-behavior: smooth; }
 
-  h1, h2, h3 { font-family: var(--font-serif); font-weight: 400; letter-spacing: 0; }
+  h1, h2, h3 { font-family: var(--font-serif); font-weight: 400; letter-spacing: 0; line-height: 1.1; word-break: normal; overflow-wrap: normal; hyphens: none; }
 
   ::selection { background: var(--lagoon); color: var(--purchase-foreground); }
 }
