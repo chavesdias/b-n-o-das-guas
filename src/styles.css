@@ -313,7 +313,7 @@
 
   .site-footer { padding: 6rem max(1.25rem, calc((100% - 76rem) / 2)); background: var(--deep-water); color: var(--foam); text-align: center; }
   .footer-symbol { width: 4rem; height: 4rem; display: grid; place-items: center; margin: 0 auto 2rem; border: 1px solid color-mix(in oklab, var(--foam) 30%, transparent); border-radius: 50%; color: var(--gold-soft); }
-  .site-footer > h2 { max-width: 45rem; margin: 0 auto 2.5rem; font-size: clamp(3rem, 6vw, 5.5rem); line-height: .95; }
+  .site-footer > h2 { max-width: 45rem; margin: 0 auto 2.5rem; font-size: clamp(3rem, 6vw, 5.5rem); line-height: 1.1; }
   .footer-bottom { display: grid; grid-template-columns: .6fr 1fr 1.5fr; align-items: end; gap: 2rem; margin-top: 7rem; padding-top: 2rem; border-top: 1px solid color-mix(in oklab, var(--foam) 16%, transparent); text-align: left; }
   .footer-brand { font-family: var(--font-serif); font-size: 1.3rem; }
   .footer-bottom nav { display: flex; gap: 1.2rem; }
