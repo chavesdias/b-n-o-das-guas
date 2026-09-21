@@ -359,7 +359,6 @@
 
 @media (max-width: 480px) {
   .button-sacred { width: 100%; }
-  .hero-copy h1 { font-size: 4.15rem; }
   .hero-description { font-size: 1.22rem; }
   .water-gallery { height: 29rem; grid-template-columns: 1fr 1fr; }
   .benefit-item p { font-size: 1.2rem; }
