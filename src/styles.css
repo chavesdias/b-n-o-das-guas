@@ -292,7 +292,7 @@
   .price-grid { max-width: 48rem; margin: 3.5rem auto 0; display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.2rem; text-align: left; }
   .price-card { position: relative; min-height: 24rem; display: flex; flex-direction: column; padding: 2.2rem; border: 1px solid color-mix(in oklab, var(--foam) 22%, transparent); }
   .price-card.featured { background: var(--foam); color: var(--deep-water); border-color: var(--foam); }
-  .availability { position: absolute; top: 1rem; right: 1rem; padding: .35rem .55rem; background: var(--gold-soft); color: var(--deep-water); font-size: .63rem; font-weight: 800; text-transform: uppercase; }
+  .availability { position: absolute; top: 1rem; right: 1rem; display: inline-flex; gap: .25rem; padding: .35rem .55rem; background: var(--gold-soft); color: var(--deep-water); font-size: .63rem; font-weight: 800; text-transform: uppercase; }
   .price-card > p:first-of-type { color: var(--gold); font-size: .72rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
   .price { display: flex; align-items: flex-start; margin-top: 2rem; font-family: var(--font-serif); }
   .price small { margin-top: .8rem; font-size: 1.25rem; }

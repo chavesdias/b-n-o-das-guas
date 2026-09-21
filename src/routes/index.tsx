@@ -329,7 +329,7 @@ function Index() {
           <h2>Escolha receber esse chamado</h2>
           <div className="price-grid">
             <article className="price-card featured">
-              <span className="availability">Disponível agora</span>
+              <span className="availability"><b>Disponível</b><b>agora</b></span>
               <p>Lote 1</p>
               <div className="price"><small>R$</small><strong>111</strong></div>
               <span>até [data]</span>
