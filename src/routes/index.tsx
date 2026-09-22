@@ -17,7 +17,6 @@ import {
 } from "lucide-react";
 
 import mountainsImage from "@/assets/titicaca-mountains.jpg.asset.json";
-import leavesImage from "@/assets/titicaca-leaves.jpeg.asset.json";
 import labyrinthImage from "@/assets/titicaca-labyrinth.jpeg.asset.json";
 import chakanaImage from "@/assets/titicaca-chakana.jpeg.asset.json";
 
@@ -130,6 +129,26 @@ function SectionLabel({ children }: { children: React.ReactNode }) {
   );
 }
 
+function ChakanaIcon({ className }: { className?: string }) {
+  return (
+    <svg viewBox="-3.7 -4.9 7.4 8.6" className={className} fill="none" stroke="currentColor" strokeWidth="0.16" strokeLinejoin="round" aria-hidden="true">
+      <path d="M-1 -3H1V-2H2V-1H3V1H2V2H1V3H-1V2H-2V1H-3V-1H-2V-2H-1Z" />
+      <circle cx="0" cy="0" r="0.55" />
+      <circle cx="0" cy="-3.95" r="0.45" />
+    </svg>
+  );
+}
+
+function ChakanaDivider() {
+  return (
+    <div className="chakana-divider" aria-hidden="true">
+      <span />
+      <ChakanaIcon />
+      <span />
+    </div>
+  );
+}
+
 function WaveDivider({ dark = false }: { dark?: boolean }) {
   return <div className={dark ? "wave-divider wave-divider-dark" : "wave-divider"} aria-hidden="true" />;
 }
@@ -193,9 +212,9 @@ function Index() {
         <div className="content-grid">
           <div className="video-placeholder">
             <img
-              src={leavesImage.url}
-              alt="Folhas sagradas diante das águas do Lago Titicaca"
-              className="video-water-texture"
+              src="/alice-chakana.jpg"
+              alt="Alice Chaves diante da chakana, com o Lago Titicaca ao fundo"
+              className="video-water-texture video-photo"
               loading="lazy"
               width={1024}
               height={1280}
@@ -225,13 +244,13 @@ function Index() {
 
         <div className="water-gallery" aria-label="Águas e paisagens do Lago Titicaca">
           <figure className="gallery-tall">
-            <img src={labyrinthImage.url} alt="Labirinto ritual diante do Lago Titicaca" loading="lazy" width={1024} height={1280} />
+            <img src={chakanaImage.url} alt="Chakana de pedra às margens do Titicaca" loading="lazy" width={1024} height={1280} />
           </figure>
           <figure className="gallery-wide">
             <img src={mountainsImage.url} alt="Cordilheira andina sob nuvens profundas" loading="lazy" width={768} height={1024} />
           </figure>
           <figure className="gallery-small">
-            <img src={chakanaImage.url} alt="Chakana de pedra às margens do Titicaca" loading="lazy" width={1024} height={1280} />
+            <img src={labyrinthImage.url} alt="Labirinto ritual diante do Lago Titicaca" loading="lazy" width={1024} height={1280} />
           </figure>
         </div>
       </section>
@@ -315,13 +334,15 @@ function Index() {
         </div>
       </section>
 
+      <ChakanaDivider />
+
       <section className="guide-section">
         <div className="section-shell guide-grid">
           <img
-            src="/alice-lago.jpg"
-            alt="Alice Chaves sorrindo, com o Lago Titicaca ao fundo"
+            src="/alice-bio.jpg"
+            alt="Alice Chaves, com o Lago Titicaca e um portal com a chakana ao fundo"
             className="portrait-photo"
-            style={{ objectPosition: "60% 30%" }}
+            style={{ objectPosition: "center" }}
             loading="lazy"
           />
           <div className="guide-copy">
@@ -351,6 +372,7 @@ function Index() {
       </section>
 
       <section className="investment-section">
+        <ChakanaIcon className="chakana-watermark" />
         <div className="section-shell">
           <SectionLabel>Investimento</SectionLabel>
           <h2>Escolha receber esse chamado</h2>
