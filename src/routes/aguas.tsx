@@ -49,10 +49,27 @@ export const Route = createFileRoute("/aguas")({
 });
 
 const workItems = [
-  "Autenticidade e a própria voz",
+  "Equilíbrio emocional",
+  "Relacionamentos íntimos e sexualidade",
   "Criatividade, criação e manifestação",
-  "Relacionamentos e sexualidade",
+  "Comunicação fluida, autenticidade e a própria voz",
+  "Integridade entre pensamento, palavra e ação",
+  "Clareza do nosso caminho espiritual",
   "Harmonização energética de questões ligadas ao útero, à reprodução e à tireoide",
+];
+
+const keywords = [
+  "Equilíbrio emocional",
+  "Fluxo",
+  "Voz autêntica",
+  "Criatividade",
+  "Acolhimento",
+  "Ancestralidade",
+  "Poder de criação e manifestação",
+  "Leveza",
+  "Conexão com os ritmos da Natureza",
+  "Clareza",
+  "Relacionamentos saudáveis",
 ];
 
 const journeyItems = [
@@ -321,16 +338,22 @@ function Index() {
         <div className="section-shell">
           <div className="deep-intro">
             <SectionLabel>O que a bênção trabalha</SectionLabel>
-            <h2>Harmonizar o que você sente.<br />Liberar o que você veio expressar.</h2>
+            <h2>Criação e expressão em harmonia</h2>
             <p>
-              Uma grande harmonização, alinhamento e purificação energética dos nossos centros de
-              energia, especialmente do segundo e do quinto chakras.
+              A Bênção atua nos corpos sutis (energético, de sabedoria e de memória), com foco
+              especial no segundo e no quinto chakras. Eles estão interligados e se refletem na nossa
+              vida em:
             </p>
           </div>
+          <ul className="keyword-tags" aria-label="Palavras-chave da vivência">
+            {keywords.map((word) => (
+              <li key={word}>{word}</li>
+            ))}
+          </ul>
           <div className="benefit-grid">
             {workItems.map((item, index) => (
               <article className="benefit-item" key={item}>
-                <span>0{index + 1}</span>
+                <span>{String(index + 1).padStart(2, "0")}</span>
                 <p>{item}</p>
               </article>
             ))}
