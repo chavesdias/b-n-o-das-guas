@@ -48,15 +48,6 @@ export const Route = createFileRoute("/aguas")({
   component: Index,
 });
 
-const workItems = [
-  "Equilíbrio emocional",
-  "Relacionamentos íntimos e sexualidade",
-  "Criatividade, criação e manifestação",
-  "Comunicação fluida, autenticidade e a própria voz",
-  "Integridade entre pensamento, palavra e ação",
-  "Clareza do nosso caminho espiritual",
-  "Harmonização energética de questões ligadas ao útero, à reprodução e à tireoide",
-];
 
 const keywords = [
   "Equilíbrio emocional",
@@ -350,14 +341,6 @@ function Index() {
               <li key={word}>{word}</li>
             ))}
           </ul>
-          <div className="benefit-grid">
-            {workItems.map((item, index) => (
-              <article className="benefit-item" key={item}>
-                <span>{String(index + 1).padStart(2, "0")}</span>
-                <p>{item}</p>
-              </article>
-            ))}
-          </div>
         </div>
       </section>
 
