@@ -29,17 +29,17 @@ const youtubeLink = "[LINK DO YOUTUBE]";
 export const Route = createFileRoute("/aguas")({
   head: () => ({
     meta: [
-      { title: "Bênção das Águas — Vivência online com Alice Chaves" },
+      { title: "Bênção das Águas com Alice Chaves · Vivência online" },
       {
         name: "description",
         content:
-          "Uma vivência online para harmonizar criatividade, voz e fluxo a partir das águas sagradas do Lago Titicaca.",
+          "Vivência online e ao vivo, inspirada nas águas sagradas do Lago Titicaca, para equilibrar sua força criativa e sua expressão autêntica. 18 de outubro, das 9h às 12h.",
       },
-      { property: "og:title", content: "Bênção das Águas" },
+      { property: "og:title", content: "Bênção das Águas com Alice Chaves" },
       {
         property: "og:description",
         content:
-          "Receba a Bênção das Águas em uma jornada guiada ao coração do Lago Titicaca.",
+          "Vivência online e ao vivo, inspirada nas águas sagradas do Lago Titicaca. 18 de outubro, das 9h às 12h.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -241,9 +241,9 @@ function Index() {
         />
         <div className="hero-overlay" />
         <div className="hero-content">
-          <div className="brand-mark" aria-label="Casa Templo">
+          <div className="brand-mark" aria-label="Alice Chaves">
             <Waves aria-hidden="true" size={24} strokeWidth={1.2} />
-            <span>Casa Templo</span>
+            <span>Alice Chaves</span>
           </div>
           <div className="hero-copy">
             <p className="hero-kicker">Vivência online e ao vivo</p>
@@ -425,12 +425,11 @@ function Index() {
           <div className="guide-copy">
             <SectionLabel>Quem conduz</SectionLabel>
             <h2>Alice Chaves</h2>
-            <p className="guide-role">Fundadora da Casa Templo</p>
+            <p className="guide-role">Terapeuta energética</p>
             <p>
               Há mais de 10 anos dedicada às práticas energéticas, trabalha com Registros Akáshicos,
               Radiestesia, Radiônica, Geometria Sagrada, Theta Healing e Reiki.
             </p>
-            <div className="guide-signature">Casa Templo</div>
           </div>
         </div>
       </section>
@@ -510,7 +509,7 @@ function Index() {
         <h2>Que as águas abram os seus caminhos mais leves e verdadeiros.</h2>
         <SignupLink light>Quero garantir minha vaga</SignupLink>
         <div className="footer-bottom">
-          <div className="footer-brand">Casa Templo</div>
+          <div className="footer-brand">Alice Chaves</div>
           <nav aria-label="Redes e contato">
             <a href="[Instagram]" target="_blank" rel="noreferrer"><Instagram aria-hidden="true" size={17} /> Instagram</a>
             <a href="[WhatsApp]" target="_blank" rel="noreferrer"><MessageCircle aria-hidden="true" size={17} /> WhatsApp</a>
