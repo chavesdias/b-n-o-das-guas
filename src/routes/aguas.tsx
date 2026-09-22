@@ -315,7 +315,7 @@ function Index() {
             <p>Talvez você venha de relações que te esvaziaram, e ainda esteja se desvencilhando delas.</p>
             <p>Ou talvez seja aquela conhecida pergunta ainda sem resposta: quem eu sou, e o que eu vim fazer aqui?</p>
           </div>
-          <p className="closing-line">As águas sabem mover o que está travado.</p>
+          <p className="closing-line">As águas conhecem o caminho.</p>
         </div>
       </section>
 
