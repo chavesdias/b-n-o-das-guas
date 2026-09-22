@@ -19,9 +19,6 @@ import {
   Waves,
 } from "lucide-react";
 
-import mountainsImage from "@/assets/titicaca-mountains.jpg.asset.json";
-import labyrinthImage from "@/assets/titicaca-labyrinth.jpeg.asset.json";
-import chakanaImage from "@/assets/titicaca-chakana.jpeg.asset.json";
 
 const paymentLink = "https://www.sympla.com.br/evento-online/bencao-das-aguas-edicao-primavera-26/3589447";
 const youtubeLink = "[LINK DO YOUTUBE]";
@@ -343,13 +340,13 @@ function Index() {
 
         <div className="water-gallery" aria-label="Águas e paisagens do Lago Titicaca">
           <figure className="gallery-tall">
-            <img src={chakanaImage.url} alt="Chakana de pedra às margens do Titicaca" loading="lazy" width={1024} height={1280} />
+            <img src="/galeria-altar.jpg" alt="Altar de pedra diante do Lago Titicaca" loading="lazy" width={1600} height={1537} />
           </figure>
           <figure className="gallery-wide">
-            <img src={mountainsImage.url} alt="Cordilheira andina sob nuvens profundas" loading="lazy" width={768} height={1024} />
+            <img src="/galeria-lago.jpg" alt="Muros de pedra e as águas azuis do Lago Titicaca" loading="lazy" width={1600} height={900} />
           </figure>
           <figure className="gallery-small">
-            <img src={labyrinthImage.url} alt="Labirinto ritual diante do Lago Titicaca" loading="lazy" width={1024} height={1280} />
+            <img src="/galeria-chakana.jpg" alt="Chakana de pedra e o altar diante das águas do Titicaca" loading="lazy" width={1600} height={939} />
           </figure>
         </div>
       </section>
