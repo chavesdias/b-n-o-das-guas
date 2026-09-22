@@ -64,48 +64,59 @@ const keywords = [
 ];
 
 const journeyItems = [
-  "O simbolismo das águas",
-  "Uma introdução à cosmologia andina, para aplicar no dia a dia e viver mais conectada com a Terra",
-  "Uma prática diária com as águas",
-  "A Bênção das Águas, em uma jornada guiada até o coração do Titicaca",
+  "Uma breve introdução à cosmologia andina, para viver mais conectada com a sua real natureza",
+  "O simbolismo e o poder oculto das águas",
+  "Acesso a uma prática ancestral que te apoia a manifestar a vida dos seus sonhos",
+  "A Bênção das Águas, através de uma leve e profunda visualização guiada",
 ];
 
 const audienceItems = [
-  "Quer se aprofundar na sua criatividade e autenticidade",
-  "Quer harmonizar questões ligadas ao útero e à reprodução",
-  "Quer curar a relação com a mãe e a ancestralidade materna",
-  "Quer encontrar a própria voz",
-  "Deseja viver mais no fluxo, em harmonia com os ritmos naturais da Terra",
-  "Busca uma forma leve e profunda de se harmonizar com as questões ligadas ao feminino",
+  "Equilibrar as suas emoções e se expressar com mais verdade",
+  "Harmonizar a relação com a mãe simbólica e real, com filhas e/ou com a ancestralidade feminina",
+  "Levar cuidado energético às regiões do útero, do ventre e da garganta",
+  "Uma vida mais criativa, trilhando seu próprio caminho",
+  "Viver mais no fluxo, em harmonia com os ritmos naturais da Terra",
+  "Vivenciar um caminho leve e autêntico para honrar o seu aspecto feminino",
 ];
 
 // Depoimentos: troque [Nome] e [Cidade] depois de pedir autorização a cada pessoa.
 const testimonials = [
   {
-    text: "Iniciei muito inquieta, sentindo várias coisas me incomodando. Com o tempo fui me entregando para a respiração e… não sei para onde fui. Terminei plena. Há muito tempo não tinha essa sensação.",
-    name: "[Nome]",
-    city: "[Cidade]",
-  },
-  {
-    text: "Me sinto mais serena. Reajo menos, compreendo mais. Antigas dores começam a perder a intensidade e reconto a minha história. Hoje sinto mais luz e fluidez, na minha casa externa e na interna também.",
-    name: "[Nome]",
-    city: "[Cidade]",
+    text: "Acordei com um senso de serenidade muito grande. Aquela urgência que a gente cria na cabeça, de que tudo precisa acontecer agora, foi embora. Eu já sabia disso racionalmente, mas depois do seu atendimento esse entendimento passou para o corpo. Sinto uma paz profunda.",
+    name: "Mariana N.",
+    city: "",
   },
   {
     text: "Estou sentindo novos caminhos se abrindo. Parecia que antes estava tudo bloqueado, eu não conseguia enxergar perspectivas futuras. Agora os caminhos estão se abrindo de novo.",
-    name: "[Nome]",
-    city: "[Cidade]",
+    name: "Daniela P.",
+    city: "",
+  },
+  {
+    text: "Se eu consegui chegar onde estou hoje, tenho certeza de que você e a sua energia me ajudaram, abrindo caminhos, abrindo minha mente e me fortalecendo para tomar a decisão que eu precisava tomar. Você é tão doce, tão sutil e, ao mesmo tempo, me ajudou a fazer transformações tão potentes.",
+    name: "Cláudia C.",
+    city: "",
   },
 ];
 
 const faqItems = [
   {
-    question: "Preciso seguir alguma religião?",
-    answer: "Não. A vivência é aberta a todas as pessoas, de qualquer caminho espiritual.",
+    question: "Preciso ter alguma experiência?",
+    answer:
+      "Não. A vivência é para quem está começando agora e também para quem já caminha há tempo. Basta disponibilidade para estar presente.",
   },
   {
-    question: "Não posso ao vivo. Posso assistir depois?",
-    answer: "Sim. A gravação fica disponível por 30 dias.",
+    question: "Preciso ter um útero?",
+    answer:
+      "Não. A vivência é aberta a todas as pessoas, independentemente de gênero ou corpo. A Bênção atua nos corpos sutis.",
+  },
+  {
+    question: "A vivência segue alguma religião?",
+    answer:
+      "Não. Aplicamos conceitos espirituais universalistas e a sabedoria da natureza.",
+  },
+  {
+    question: "Não posso estar ao vivo. Posso assistir depois?",
+    answer: "Sim. A gravação fica disponível por 30 dias para você assistir quando quiser.",
   },
   {
     question: "Como recebo o link de acesso?",
@@ -115,28 +126,25 @@ const faqItems = [
   {
     question: "Tenho garantia?",
     answer:
-      "Sim. Você tem 7 dias de garantia: se sentir que a vivência não é para você, basta pedir e devolvemos 100% do valor.",
+      "Sim. Você tem 7 dias de garantia após a compra: se sentir que a vivência não é para você, basta pedir e devolvemos 100% do valor.",
   },
   {
-    question: "Homens e pessoas sem útero físico podem participar?",
-    answer: "Sim. A bênção atua também no útero energético, o centro de criação que todas e todos carregamos.",
-  },
-  {
-    question: "O que preciso ter em mãos?",
-    answer: "Um lugar tranquilo, um copo com água e um caderno para anotações.",
+    question: "O que preciso para participar?",
+    answer:
+      "Um lugar tranquilo, seu computador ou celular com acesso ao Zoom, um copo com água e um caderno para anotações.",
   },
 ];
 
 const notForItems = [
-  "Procura processos catárticos",
+  "Procura processos catárticos ou intensos para sentir que \"aconteceu algo\"",
   "Espera uma solução milagrosa, sem se abrir ao próprio processo",
+  "Busca fortalecer a polarização entre feminino e masculino",
 ];
 
 const includedItems = [
   "Vivência de 3 horas ao vivo pelo Zoom",
-  "A Bênção das Águas, guiada por Alice",
+  "A Bênção das Águas",
   "O simbolismo das águas e uma introdução à cosmologia andina",
-  "PDF com práticas para você continuar em casa",
   "Áudio de Conexão para manter a prática no dia a dia",
   "Gravação completa por 30 dias",
   "Grupo silencioso e temporário no WhatsApp, só para o link e os materiais",
@@ -257,9 +265,10 @@ function Index() {
             <p className="hero-kicker">Vivência online e ao vivo</p>
             <h1>Bênção<br />das Águas</h1>
             <p className="hero-description">
-              Uma vivência para harmonizar sua criatividade, sua voz e seu fluxo, a partir das águas
-              sagradas do Lago Titicaca.
+              Receba essa bênção que move o que está travado e te apoia a fluir em harmonia com os
+              ritmos naturais da vida.
             </p>
+            <p className="hero-themes">Equilíbrio emocional · Ancestralidade · Criatividade e voz autêntica</p>
             <div className="hero-date">
               <CalendarDays aria-hidden="true" size={19} strokeWidth={1.5} />
               <span>18 de outubro de 2026</span>
@@ -276,15 +285,37 @@ function Index() {
         </div>
       </section>
 
+      <section className="section-shell highlights-section">
+        <div className="highlights-strip">
+          <article>
+            <Clock3 aria-hidden="true" size={22} strokeWidth={1.4} />
+            <strong>3 horas ao vivo</strong>
+            <p>Uma manhã de conhecimento, prática e a Bênção das Águas.</p>
+          </article>
+          <article>
+            <Video aria-hidden="true" size={22} strokeWidth={1.4} />
+            <strong>Gravação por 30 dias</strong>
+            <p>Não pode estar ao vivo? Assista no seu tempo.</p>
+          </article>
+          <article>
+            <Gift aria-hidden="true" size={22} strokeWidth={1.4} />
+            <strong>Material complementar</strong>
+            <p>Se quiser continuar suas práticas em casa.</p>
+          </article>
+        </div>
+      </section>
+
       <section id="identificacao" className="section-shell identification-section">
         <div className="narrow-copy reveal-block">
-          <SectionLabel>Um chamado para o seu fluxo</SectionLabel>
-          <h2>Você sente que existe algo em você querendo nascer, mas não flui?</h2>
+          <SectionLabel>Um convite</SectionLabel>
+          <h2>Tem algo que precisa mudar, mas você não sabe muito bem como?</h2>
           <div className="questions-list">
-            <p>Sente dificuldade de se expressar, de criar, de confiar no seu corpo?</p>
-            <p>Carrega pesos da sua linhagem materna?</p>
+            <p>Talvez a vida pareça travada, sem brilho.</p>
+            <p>Talvez as emoções estejam desequilibradas, oscilando mais do que você gostaria.</p>
+            <p>Talvez você venha de relações que te esvaziaram, e ainda esteja se desvencilhando delas.</p>
+            <p>Ou talvez seja aquela conhecida pergunta ainda sem resposta: quem eu sou, e o que eu vim fazer aqui?</p>
           </div>
-          <p className="closing-line">Talvez seja hora de deixar as águas fazerem o seu trabalho.</p>
+          <p className="closing-line">As águas sabem mover o que está travado.</p>
         </div>
       </section>
 
@@ -295,19 +326,18 @@ function Index() {
           <VideoCard />
           <div className="origin-copy">
             <SectionLabel>De onde vem essa bênção</SectionLabel>
-            <h2>Um chamado recebido às margens do Titicaca</h2>
+            <h2>Uma bênção recebida às margens do Titicaca</h2>
             <p>
-              Acabei de voltar de uma viagem mística e ascensional pelo Peru. Às margens do Lago
-              Titicaca, o lago navegável mais alto do planeta, recebi um grande alinhamento.
+              Em setembro estive em peregrinação pelo Peru. Entrei num barco até o centro do Lago
+              Titicaca, o lago navegável mais alto do planeta, e entreguei três folhas de coca às
+              suas águas, me apresentando.
             </p>
             <p>
-              O Titicaca é considerado o segundo chakra da Terra. Um dos lugares mais poderosos e de
-              cura que existem, com águas sagradas que guardam mistérios, símbolos e histórias vivas
-              até hoje.
+              O Titicaca é considerado o segundo chakra da Terra, e ali as águas são chamadas de
+              Mama Cocha, a Mãe Água. São águas sagradas, que guardam mistérios, símbolos e
+              histórias vivas até hoje.
             </p>
-            <p className="origin-highlight">
-              Estou chamando isso de Bênção das Águas. E agora você também pode recebê-la.
-            </p>
+            <p className="origin-highlight">O que recebi delas é o que trago para esta vivência.</p>
           </div>
         </div>
 
@@ -361,8 +391,8 @@ function Index() {
         <div className="bonus-band">
           <Gift aria-hidden="true" size={28} strokeWidth={1.3} />
           <div>
-            <strong>Bônus para continuar o ritual</strong>
-            <p>O áudio da Bênção das Águas para você repetir em casa sempre que precisar.</p>
+            <strong>Bônus</strong>
+            <p>Áudio de Conexão para você manter uma prática diária.</p>
           </div>
         </div>
         <div className="centered-action"><SignupLink>Quero receber a Bênção</SignupLink></div>
@@ -405,13 +435,13 @@ function Index() {
 
       <section className="section-shell testimonials-section">
         <SectionLabel>Depoimentos</SectionLabel>
-        <h2>O que dizem de quem já viveu o trabalho da Alice</h2>
+        <h2>O que dizem sobre o trabalho com a Alice</h2>
         <div className="testimonial-grid">
           {testimonials.map((item) => (
             <blockquote key={item.text}>
               <Sparkles aria-hidden="true" size={20} strokeWidth={1.3} />
               <p>“{item.text}”</p>
-              <footer>{item.name} <span>· {item.city}</span></footer>
+              <footer>{item.name}{item.city ? <span>· {item.city}</span> : null}</footer>
             </blockquote>
           ))}
         </div>
@@ -431,25 +461,18 @@ function Index() {
           <div className="guide-copy">
             <SectionLabel>Quem conduz</SectionLabel>
             <h2>Alice Chaves</h2>
-            <p className="guide-role">Terapeuta energética</p>
+            <p className="guide-role">Terapeuta holística, pesquisadora e viajante</p>
             <p>
-              Há mais de 10 anos dedicada às práticas energéticas, trabalha com Registros Akáshicos,
-              Radiestesia, Radiônica, Geometria Sagrada, Theta Healing e Reiki.
+              Conduzo encontros e atendimentos desde 2018, com mais de 600 horas de formação, entre
+              elas: Leitura de Memórias e Cura Akáshica, Respiração Biodinâmica e Liberação de
+              Traumas e Mestrado em Reiki Usui.
             </p>
+            <p>
+              O que me move é traduzir o invisível em práticas com os pés no chão, e trazer leveza
+              com profundidade para os processos de autoconhecimento e espiritualidade.
+            </p>
+            <p className="guide-registry">Registro profissional CRTH-BR 20291</p>
           </div>
-        </div>
-      </section>
-
-      <section className="section-shell details-section">
-        <div className="details-heading">
-          <SectionLabel>Como funciona</SectionLabel>
-          <h2>Prepare seu espaço.<br />As águas chegam até você.</h2>
-        </div>
-        <div className="details-grid">
-          <article><CalendarDays aria-hidden="true" /><span>Data e horário</span><strong>18/10/2026, domingo<br />das 9h às 12h · Brasília</strong></article>
-          <article><Video aria-hidden="true" /><span>Formato</span><strong>3 horas, online e ao vivo<br />pelo [Zoom/Meet]</strong></article>
-          <article><Clock3 aria-hidden="true" /><span>Acesso</span><strong>Gravação por 30 dias<br />+ bônus em áudio</strong></article>
-          <article><Heart aria-hidden="true" /><span>Turma</span><strong>Vagas limitadas para<br />um encontro próximo</strong></article>
         </div>
       </section>
 
@@ -457,7 +480,7 @@ function Index() {
         <ChakanaIcon className="chakana-watermark" />
         <div className="section-shell">
           <SectionLabel>Inscrição</SectionLabel>
-          <h2>Bênção das Águas</h2>
+          <h2>Bênção das Águas · Edição Primavera 26</h2>
           <div className="offer-meta">
             <p>Vivência online e ao vivo pelo Zoom · domingo, 18 de outubro de 2026, das 9h às 12h (Brasília)</p>
             <p>Gravação disponível por 30 dias</p>
@@ -480,13 +503,13 @@ function Index() {
                 <span className="availability"><b>Disponível</b><b>agora</b></span>
                 <p>Lote 1</p>
                 <div className="price"><small>R$</small><strong>111</strong></div>
-                <span>até [data] · Pix ou cartão</span>
+                <span>até 09/10 · ou em até 12x de R$11,71</span>
                 <SignupLink>Garantir no Lote 1</SignupLink>
               </article>
               <article className="price-card">
                 <p>Lote 2</p>
                 <div className="price"><small>R$</small><strong>144</strong></div>
-                <span>a partir de [data]</span>
+                <span>a partir de 10/10 · ou em até 12x de R$15,19</span>
                 <p className="later-note">Disponível após o encerramento do primeiro lote.</p>
               </article>
               <p className="secure-note">Pagamento seguro pelo Sympla.</p>
@@ -495,10 +518,29 @@ function Index() {
         </div>
       </section>
 
+      <section className="section-shell ayni-section">
+        <div className="narrow-copy">
+          <SectionLabel>Ayni</SectionLabel>
+          <h2>Receber e devolver</h2>
+          <p>
+            Na cosmologia andina, Ayni é o princípio da reciprocidade: aquilo que recebemos da vida
+            também nos convida a oferecer algo de volta.
+          </p>
+          <p>
+            Por isso, a Bênção das Águas não termina em nós. Uma parte de cada inscrição será
+            destinada a uma iniciativa que cuida das águas, dos territórios e das comunidades que
+            delas dependem.
+          </p>
+          <p className="closing-line">
+            Ao participar, você entra em um ciclo maior de reciprocidade. É o nosso Ayni.
+          </p>
+        </div>
+      </section>
+
       <section className="section-shell faq-section">
         <div className="faq-heading">
-          <SectionLabel>Perguntas frequentes</SectionLabel>
-          <h2>Antes de mergulhar</h2>
+          <SectionLabel>Dúvidas</SectionLabel>
+          <h2>Perguntas frequentes</h2>
         </div>
         <div className="faq-list">
           {faqItems.map((item) => (
@@ -517,13 +559,13 @@ function Index() {
         <div className="footer-bottom">
           <div className="footer-brand">Alice Chaves</div>
           <nav aria-label="Redes e contato">
-            <a href="[Instagram]" target="_blank" rel="noreferrer"><Instagram aria-hidden="true" size={17} /> Instagram</a>
-            <a href="[WhatsApp]" target="_blank" rel="noreferrer"><MessageCircle aria-hidden="true" size={17} /> WhatsApp</a>
-            <span><Mail aria-hidden="true" size={17} /> [e-mail]</span>
+            <a href="https://www.instagram.com/alichaves" target="_blank" rel="noreferrer"><Instagram aria-hidden="true" size={17} /> Instagram</a>
+            <a href="https://wa.me/5531991354712" target="_blank" rel="noreferrer"><MessageCircle aria-hidden="true" size={17} /> WhatsApp</a>
+            <a href="mailto:alicechaves@gmail.com"><Mail aria-hidden="true" size={17} /> E-mail</a>
           </nav>
           <p>Esta vivência é uma prática energética e não substitui acompanhamento médico ou terapêutico.</p>
         </div>
-        <p className="copyright">© 2026 Alice Chaves · CNPJ [número] · Todos os direitos reservados.</p>
+        <p className="copyright">© 2026 Alice Chaves · CNPJ 38.022.989/0001-07 · Todos os direitos reservados.</p>
       </footer>
     </main>
   );
