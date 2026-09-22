@@ -273,9 +273,9 @@
   .testimonial-grid footer span { color: var(--muted-foreground); font-weight: 400; }
 
   .guide-section { background: var(--background); }
-  .portrait-photo { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: 35% 40%; border-radius: 48% 48% 3px 3px; }
+  .portrait-photo { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: 35% 40%; border-radius: 1.5rem; }
   .guide-grid { display: grid; grid-template-columns: .85fr 1.15fr; align-items: center; gap: clamp(3rem, 8vw, 8rem); }
-  .portrait-placeholder { position: relative; isolation: isolate; aspect-ratio: 4 / 5; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1rem; overflow: hidden; background: var(--lagoon-soft); color: var(--deep-water); border-radius: 48% 48% 3px 3px; }
+  .portrait-placeholder { position: relative; isolation: isolate; aspect-ratio: 4 / 5; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1rem; overflow: hidden; background: var(--lagoon-soft); color: var(--deep-water); border-radius: 1.5rem; }
   .portrait-placeholder::after { content: ""; position: absolute; inset: 1rem; border: 1px solid color-mix(in oklab, var(--deep-water) 18%, transparent); border-radius: inherit; z-index: -1; }
   .portrait-placeholder span { font-family: var(--font-serif); font-style: italic; }
   .portrait-rings { position: absolute; width: 18rem; height: 18rem; border: 1px solid color-mix(in oklab, var(--deep-water) 14%, transparent); border-radius: 50%; z-index: -1; }
@@ -325,6 +325,11 @@
   .video-placeholder button:hover .play-button { transform: scale(1.08); background: color-mix(in oklab, var(--foam) 15%, transparent); }
   .video-embed { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
   .copyright { margin-top: 2rem; color: color-mix(in oklab, var(--foam) 55%, transparent); font-size: .8rem; }
+  /* Cantos arredondados nas caixas */
+  .included-box, .price-card, .audience-card, .testimonial-grid blockquote, .video-placeholder { border-radius: 1.25rem; overflow: hidden; }
+  .guarantee { border-radius: .9rem; }
+  .availability { border-radius: 999px; padding-inline: .75rem; }
+  .button-sacred { border-radius: .7rem; }
   .chakana-divider { display: flex; align-items: center; justify-content: center; gap: 1.2rem; padding-block: 2.5rem; color: var(--gold); }
   .chakana-divider span { width: min(10rem, 22vw); height: 1px; background: currentColor; opacity: .55; }
   .chakana-divider svg { width: 2.6rem; height: auto; }
