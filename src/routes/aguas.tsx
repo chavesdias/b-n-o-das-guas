@@ -265,8 +265,8 @@ function Index() {
             <p className="hero-kicker">Vivência online e ao vivo</p>
             <h1>Bênção<br />das Águas</h1>
             <p className="hero-description">
-              Receba essa bênção que move o que está travado e te apoia a fluir em harmonia com os
-              ritmos naturais da vida.
+              Uma bênção recebida das águas do Lago Titicaca, para mover o que está travado em
+              sua vida.
             </p>
             <p className="hero-themes">Equilíbrio emocional · Ancestralidade · Criatividade e voz autêntica</p>
             <div className="hero-date">
@@ -276,7 +276,7 @@ function Index() {
               <Clock3 aria-hidden="true" size={19} strokeWidth={1.5} />
               <span>9h às 12h · Brasília</span>
             </div>
-            <SignupLink light>Quero garantir minha vaga</SignupLink>
+            <SignupLink light>Quero receber a Bênção</SignupLink>
           </div>
           <a href="#identificacao" className="scroll-cue" aria-label="Ir para o conteúdo">
             <span>Desça para sentir</span>
@@ -395,7 +395,7 @@ function Index() {
             <p>Áudio de Conexão para você manter uma prática diária.</p>
           </div>
         </div>
-        <div className="centered-action"><SignupLink>Quero receber a Bênção</SignupLink></div>
+        <div className="centered-action"><SignupLink>Quero viver essa jornada</SignupLink></div>
       </section>
 
       <section className="audience-section">
@@ -430,7 +430,7 @@ function Index() {
             </div>
           </div>
         </div>
-        <div className="centered-action"><SignupLink>Quero garantir minha vaga</SignupLink></div>
+        <div className="centered-action"><SignupLink>Essa vivência é para mim</SignupLink></div>
       </section>
 
       <section className="section-shell testimonials-section">
@@ -504,7 +504,7 @@ function Index() {
                 <p>Lote 1</p>
                 <div className="price"><small>R$</small><strong>111</strong></div>
                 <span>até 09/10 · ou em até 12x de R$11,71</span>
-                <SignupLink>Garantir no Lote 1</SignupLink>
+                <SignupLink>Garantir minha vaga no Lote 1</SignupLink>
               </article>
               <article className="price-card">
                 <p>Lote 2</p>
@@ -555,7 +555,7 @@ function Index() {
       <footer className="site-footer">
         <div className="footer-symbol"><Waves aria-hidden="true" size={30} strokeWidth={1} /></div>
         <h2>Que as águas abram os seus caminhos mais leves e verdadeiros.</h2>
-        <SignupLink light>Quero garantir minha vaga</SignupLink>
+        <SignupLink light>Sim, quero participar</SignupLink>
         <div className="footer-bottom">
           <div className="footer-brand">Alice Chaves</div>
           <nav aria-label="Redes e contato">
