@@ -404,7 +404,7 @@ function Index() {
           </div>
           <div className="audience-columns">
             <div className="audience-card">
-              <h3>É para você que…</h3>
+              <h3>É para você que busca…</h3>
               <div className="audience-list">
                 {audienceItems.map((item) => (
                   <div key={item}>
