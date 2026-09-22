@@ -205,7 +205,7 @@
   .narrow-copy .section-label { justify-content: center; }
   .narrow-copy h2 { margin: 1.6rem auto 2.6rem; font-size: clamp(2.4rem, 5vw, 4rem); line-height: 1.1; text-wrap: balance; }
   .questions-list { color: var(--muted-foreground); font-size: 1.05rem; line-height: 1.8; }
-  .closing-line { margin-top: 2.5rem; color: var(--lagoon); font-family: var(--font-serif); font-size: 1.55rem; font-style: italic; }
+  .closing-line { margin-top: 3rem; color: var(--deep-water); font-family: var(--font-serif); font-size: clamp(1.7rem, 2.6vw, 2.2rem); line-height: 1.35; text-wrap: balance; }
   .wave-divider { position: relative; height: 4rem; background: var(--background); overflow: hidden; }
   .wave-divider::after { content: ""; position: absolute; left: -5%; bottom: -3rem; width: 110%; height: 6rem; border-radius: 50% 50% 0 0; background: var(--sky); }
   .wave-divider-dark { background: var(--sky); }
@@ -343,9 +343,9 @@
   .highlights-strip p { color: var(--muted-foreground); line-height: 1.6; }
   .origin-highlight { margin-top: 1.4rem; color: var(--deep-water); font-family: var(--font-serif); font-size: 1.45rem; line-height: 1.4; }
   .guide-registry { margin-top: 1.4rem; color: var(--muted-foreground); font-size: .85rem; letter-spacing: .06em; }
-  .ayni-section { padding-block: 6rem; text-align: center; }
+  .ayni-section { padding-block: 6rem; text-align: center; background: var(--sky); box-shadow: 0 0 0 100vmax var(--sky); clip-path: inset(0 -100vmax); }
   .ayni-section .narrow-copy { margin-inline: auto; }
-  .ayni-section p { margin-top: 1.2rem; color: var(--muted-foreground); line-height: 1.75; }
+  .ayni-section p:not(.section-label):not(.closing-line) { margin-top: 1.2rem; color: var(--muted-foreground); line-height: 1.75; }
   .chakana-divider { display: flex; align-items: center; justify-content: center; gap: 1.2rem; padding-block: 2.5rem; color: var(--gold); }
   .chakana-divider span { width: min(10rem, 22vw); height: 1px; background: currentColor; opacity: .55; }
   .chakana-divider svg { width: 2.6rem; height: auto; }
