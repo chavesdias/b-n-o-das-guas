@@ -234,6 +234,7 @@
   .deep-section .section-shell { padding-top: 5rem; }
   .deep-intro { max-width: 54rem; }
   .deep-intro h2 { margin: 1.6rem 0 1.5rem; font-size: clamp(2.7rem, 5.5vw, 4.7rem); line-height: 1.1; }
+  .deep-intro > p { max-width: 43rem; }
   .deep-intro > p:last-child { max-width: 43rem; color: color-mix(in oklab, var(--foam) 72%, transparent); line-height: 1.75; }
   .benefit-grid { display: grid; grid-template-columns: repeat(2, 1fr); margin-top: 4rem; border-top: 1px solid color-mix(in oklab, var(--foam) 18%, transparent); }
   .benefit-item { display: grid; grid-template-columns: 3rem 1fr; gap: 1rem; padding: 2rem 1rem 2rem 0; border-bottom: 1px solid color-mix(in oklab, var(--foam) 18%, transparent); }
@@ -330,6 +331,9 @@
   .guarantee { border-radius: .9rem; }
   .availability { border-radius: 999px; padding-inline: .75rem; }
   .button-sacred { border-radius: .7rem; }
+  .keyword-tags { display: flex; flex-wrap: wrap; gap: .6rem; margin-top: 2.2rem; }
+  .keyword-tags li { padding: .5rem 1rem; border: 1px solid color-mix(in oklab, var(--gold-soft) 55%, transparent); border-radius: 999px; color: var(--foam); font-size: .9rem; letter-spacing: .02em; }
+  .benefit-item:last-child:nth-child(odd) { grid-column: 1 / -1; border-right: 0; }
   .chakana-divider { display: flex; align-items: center; justify-content: center; gap: 1.2rem; padding-block: 2.5rem; color: var(--gold); }
   .chakana-divider span { width: min(10rem, 22vw); height: 1px; background: currentColor; opacity: .55; }
   .chakana-divider svg { width: 2.6rem; height: auto; }
