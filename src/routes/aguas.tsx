@@ -23,7 +23,7 @@ import mountainsImage from "@/assets/titicaca-mountains.jpg.asset.json";
 import labyrinthImage from "@/assets/titicaca-labyrinth.jpeg.asset.json";
 import chakanaImage from "@/assets/titicaca-chakana.jpeg.asset.json";
 
-const paymentLink = "[LINK DE PAGAMENTO]";
+const paymentLink = "https://www.sympla.com.br/evento-online/bencao-das-aguas-edicao-primavera-26/3589447";
 const youtubeLink = "[LINK DO YOUTUBE]";
 
 export const Route = createFileRoute("/aguas")({
