@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import {
   ArrowDown,
@@ -11,6 +12,8 @@ import {
   Mail,
   MessageCircle,
   Play,
+  ShieldCheck,
+  X,
   Sparkles,
   Video,
   Waves,
@@ -60,11 +63,12 @@ const journeyItems = [
 ];
 
 const audienceItems = [
-  "Para quem quer se aprofundar na sua criatividade e autenticidade",
-  "Para quem quer harmonizar questões ligadas ao útero e à reprodução",
-  "Para quem quer curar a relação com a mãe e a ancestralidade materna",
-  "Para quem quer encontrar a própria voz",
-  "Para quem deseja viver mais no fluxo, em harmonia com os ritmos naturais da Terra",
+  "Quer se aprofundar na sua criatividade e autenticidade",
+  "Quer harmonizar questões ligadas ao útero e à reprodução",
+  "Quer curar a relação com a mãe e a ancestralidade materna",
+  "Quer encontrar a própria voz",
+  "Deseja viver mais no fluxo, em harmonia com os ritmos naturais da Terra",
+  "Busca uma forma leve e profunda de se harmonizar com as questões ligadas ao feminino",
 ];
 
 // Depoimentos: troque [Nome] e [Cidade] depois de pedir autorização a cada pessoa.
@@ -97,12 +101,37 @@ const faqItems = [
   },
   {
     question: "Como recebo o link de acesso?",
-    answer: "Após a inscrição, você recebe o link por [e-mail/WhatsApp].",
+    answer:
+      "Com a compra confirmada, o Sympla envia a confirmação por e-mail e você é adicionada a um grupo silencioso e temporário no WhatsApp. Por lá eu envio o link do Zoom e os materiais complementares.",
   },
   {
-    question: "E se eu não tiver útero físico?",
-    answer: "A bênção atua também no útero energético, que todas e todos carregamos.",
+    question: "Tenho garantia?",
+    answer:
+      "Sim. Você tem 7 dias de garantia: se sentir que a vivência não é para você, basta pedir e devolvemos 100% do valor.",
   },
+  {
+    question: "Homens e pessoas sem útero físico podem participar?",
+    answer: "Sim. A bênção atua também no útero energético, o centro de criação que todas e todos carregamos.",
+  },
+  {
+    question: "O que preciso ter em mãos?",
+    answer: "Um lugar tranquilo, um copo com água e um caderno para anotações.",
+  },
+];
+
+const notForItems = [
+  "Procura processos catárticos",
+  "Espera uma solução milagrosa, sem se abrir ao próprio processo",
+];
+
+const includedItems = [
+  "Vivência de 3 horas ao vivo pelo Zoom",
+  "A Bênção das Águas, guiada por Alice",
+  "O simbolismo das águas e uma introdução à cosmologia andina",
+  "PDF com práticas para você continuar em casa",
+  "Áudio de Conexão para manter a prática no dia a dia",
+  "Gravação completa por 30 dias",
+  "Grupo silencioso e temporário no WhatsApp, só para o link e os materiais",
 ];
 
 function SignupLink({ children, light = false }: { children: React.ReactNode; light?: boolean }) {
@@ -126,6 +155,51 @@ function SectionLabel({ children }: { children: React.ReactNode }) {
       {children}
       <span aria-hidden="true" />
     </p>
+  );
+}
+
+function youtubeEmbed(url: string) {
+  const m = url.match(/(?:youtu\.be\/|v=|shorts\/|embed\/)([\w-]{11})/);
+  return m ? `https://www.youtube-nocookie.com/embed/${m[1]}?autoplay=1&rel=0` : null;
+}
+
+function VideoCard() {
+  const [playing, setPlaying] = useState(false);
+  const embed = youtubeEmbed(youtubeLink);
+  return (
+    <div className="video-placeholder">
+      {playing && embed ? (
+        <iframe
+          className="video-embed"
+          src={embed}
+          title="Mensagem de Alice às margens do Titicaca"
+          allow="autoplay; encrypted-media; picture-in-picture"
+          allowFullScreen
+        />
+      ) : (
+        <>
+          <img
+            src="/folhas-coca.jpg"
+            alt="Folhas de coca oferecidas às águas do Lago Titicaca"
+            className="video-water-texture video-photo"
+            loading="lazy"
+            width={1200}
+            height={1600}
+          />
+          {embed ? (
+            <button type="button" onClick={() => setPlaying(true)} aria-label="Assistir à mensagem de Alice">
+              <span className="play-button"><Play aria-hidden="true" size={24} fill="currentColor" /></span>
+              <span>Assistir à mensagem de Alice</span>
+            </button>
+          ) : (
+            <a href={youtubeLink} target="_blank" rel="noreferrer" aria-label="Assistir ao vídeo no YouTube">
+              <span className="play-button"><Play aria-hidden="true" size={24} fill="currentColor" /></span>
+              <span>Assistir à mensagem de Alice</span>
+            </a>
+          )}
+        </>
+      )}
+    </div>
   );
 }
 
@@ -158,8 +232,8 @@ function Index() {
     <main className="overflow-hidden bg-background text-foreground">
       <section className="hero-section">
         <img
-          src="/titicaca-lago.jpg"
-          alt="Margem de pedras e águas azuis do Lago Titicaca"
+          src="/titicaca-aguas.jpg"
+          alt="Amanhecer sobre as águas calmas do Lago Titicaca, com montanhas ao fundo"
           className="hero-image"
           width={1920}
           height={1280}
@@ -210,20 +284,7 @@ function Index() {
 
       <section className="section-shell origin-section">
         <div className="content-grid">
-          <div className="video-placeholder">
-            <img
-              src="/alice-chakana.jpg"
-              alt="Alice Chaves diante da chakana, com o Lago Titicaca ao fundo"
-              className="video-water-texture video-photo"
-              loading="lazy"
-              width={1024}
-              height={1280}
-            />
-            <a href={youtubeLink} target="_blank" rel="noreferrer" aria-label="Assistir ao vídeo no YouTube">
-              <span className="play-button"><Play aria-hidden="true" size={24} fill="currentColor" /></span>
-              <span>Assistir à mensagem de Alice</span>
-            </a>
-          </div>
+          <VideoCard />
           <div className="origin-copy">
             <SectionLabel>De onde vem essa bênção</SectionLabel>
             <h2>Um chamado recebido às margens do Titicaca</h2>
@@ -302,19 +363,35 @@ function Index() {
       </section>
 
       <section className="audience-section">
-        <div className="section-shell audience-inner">
-          <div className="audience-title">
+        <div className="section-shell">
+          <div className="audience-head">
             <SectionLabel>Para quem é</SectionLabel>
-            <h2>Para quem escuta o chamado das águas</h2>
-            <p>Você não precisa ter experiência prévia. Apenas disponibilidade para estar presente.</p>
+            <h2>Para quem é essa vivência</h2>
+            <p>Você não precisa ter experiência prévia. Só disponibilidade para estar presente.</p>
           </div>
-          <div className="audience-list">
-            {audienceItems.map((item) => (
-              <div key={item}>
-                <Check aria-hidden="true" size={18} strokeWidth={1.8} />
-                <p>{item}</p>
+          <div className="audience-columns">
+            <div className="audience-card">
+              <h3>É para você que…</h3>
+              <div className="audience-list">
+                {audienceItems.map((item) => (
+                  <div key={item}>
+                    <Check aria-hidden="true" size={18} strokeWidth={1.8} />
+                    <p>{item}</p>
+                  </div>
+                ))}
               </div>
-            ))}
+            </div>
+            <div className="audience-card audience-card-not">
+              <h3>Não é para você que…</h3>
+              <div className="audience-list">
+                {notForItems.map((item) => (
+                  <div key={item}>
+                    <X aria-hidden="true" size={18} strokeWidth={1.8} />
+                    <p>{item}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
         <div className="centered-action"><SignupLink>Quero garantir minha vaga</SignupLink></div>
@@ -374,22 +451,41 @@ function Index() {
       <section className="investment-section">
         <ChakanaIcon className="chakana-watermark" />
         <div className="section-shell">
-          <SectionLabel>Investimento</SectionLabel>
-          <h2>Escolha receber esse chamado</h2>
-          <div className="price-grid">
-            <article className="price-card featured">
-              <span className="availability"><b>Disponível</b><b>agora</b></span>
-              <p>Lote 1</p>
-              <div className="price"><small>R$</small><strong>111</strong></div>
-              <span>até [data]</span>
-              <SignupLink>Garantir no Lote 1</SignupLink>
-            </article>
-            <article className="price-card">
-              <p>Lote 2</p>
-              <div className="price"><small>R$</small><strong>144</strong></div>
-              <span>a partir de [data]</span>
-              <p className="later-note">Disponível após o encerramento do primeiro lote.</p>
-            </article>
+          <SectionLabel>Inscrição</SectionLabel>
+          <h2>Bênção das Águas</h2>
+          <div className="offer-meta">
+            <p>Vivência online e ao vivo pelo Zoom · domingo, 18 de outubro de 2026, das 9h às 12h (Brasília)</p>
+            <p>Gravação disponível por 30 dias</p>
+          </div>
+          <div className="offer-grid">
+            <div className="included-box">
+              <h3>O que está incluído</h3>
+              <ul>
+                {includedItems.map((item) => (
+                  <li key={item}><Check aria-hidden="true" size={16} strokeWidth={2} /><span>{item}</span></li>
+                ))}
+              </ul>
+              <div className="guarantee">
+                <ShieldCheck aria-hidden="true" size={26} strokeWidth={1.4} />
+                <p><strong>Garantia de 7 dias.</strong> Se sentir que não é para você, basta pedir e devolvemos 100% do valor.</p>
+              </div>
+            </div>
+            <div className="price-grid">
+              <article className="price-card featured">
+                <span className="availability"><b>Disponível</b><b>agora</b></span>
+                <p>Lote 1</p>
+                <div className="price"><small>R$</small><strong>111</strong></div>
+                <span>até [data] · Pix ou cartão</span>
+                <SignupLink>Garantir no Lote 1</SignupLink>
+              </article>
+              <article className="price-card">
+                <p>Lote 2</p>
+                <div className="price"><small>R$</small><strong>144</strong></div>
+                <span>a partir de [data]</span>
+                <p className="later-note">Disponível após o encerramento do primeiro lote.</p>
+              </article>
+              <p className="secure-note">Pagamento seguro pelo Sympla.</p>
+            </div>
           </div>
         </div>
       </section>
@@ -411,7 +507,7 @@ function Index() {
 
       <footer className="site-footer">
         <div className="footer-symbol"><Waves aria-hidden="true" size={30} strokeWidth={1} /></div>
-        <h2>Que as águas abram seus caminhos.</h2>
+        <h2>Que as águas abram os seus caminhos mais leves e verdadeiros.</h2>
         <SignupLink light>Quero garantir minha vaga</SignupLink>
         <div className="footer-bottom">
           <div className="footer-brand">Casa Templo</div>
@@ -422,6 +518,7 @@ function Index() {
           </nav>
           <p>Esta vivência é uma prática energética e não substitui acompanhamento médico ou terapêutico.</p>
         </div>
+        <p className="copyright">© 2026 Alice Chaves · CNPJ [número] · Todos os direitos reservados.</p>
       </footer>
     </main>
   );
