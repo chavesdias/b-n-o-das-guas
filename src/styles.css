@@ -298,6 +298,8 @@
   .investment-section .chakana-watermark { position: absolute; right: -3rem; top: 50%; width: 22rem; transform: translateY(-50%); color: color-mix(in oklab, var(--foam) 9%, transparent); pointer-events: none; }
   .investment-section .section-shell { position: relative; }
   .audience-head { max-width: 46rem; }
+  .audience-head h2 { margin: 1.4rem 0 1.2rem; font-size: clamp(2.5rem, 4.5vw, 4.2rem); line-height: 1.1; text-wrap: balance; }
+  .audience-head > p:last-child { font-size: 1.05rem; }
   .audience-head > p:last-child { color: var(--muted-foreground); line-height: 1.7; }
   .audience-columns { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 3rem; padding-bottom: 3rem; }
   .audience-card { padding: 2.2rem; background: #FFFDF8; border: 1px solid #E6CFCB; border-radius: var(--radius); }
