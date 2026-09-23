@@ -349,6 +349,9 @@
   .edition-tag { display: inline-block; margin-left: .7rem; padding: .18rem .6rem; border: 1px solid color-mix(in oklab, currentColor 45%, transparent); border-radius: 999px; font-size: .68rem; letter-spacing: .12em; text-transform: uppercase; opacity: .85; }
   .edition-tag-solo { margin: .8rem auto 0; margin-left: auto; color: var(--gold-soft); }
   .questions-list p { max-width: 44rem; margin-inline: auto; text-wrap: balance; }
+  .whatsapp-float { position: fixed; right: 1.4rem; bottom: 1.4rem; z-index: 40; display: inline-flex; align-items: center; gap: .5rem; padding: .85rem 1.15rem; background: var(--deep-water); color: var(--foam); border-radius: 999px; box-shadow: 0 10px 28px color-mix(in oklab, var(--deep-water) 35%, transparent); font-size: .9rem; letter-spacing: .02em; transition: transform .2s ease, background .2s ease; }
+  .whatsapp-float:hover { transform: translateY(-2px); background: color-mix(in oklab, var(--deep-water) 88%, black); }
+  @media (max-width: 640px) { .whatsapp-float { right: 1rem; bottom: 1rem; padding: .8rem; } .whatsapp-float span { display: none; } }
   .chakana-divider { display: flex; align-items: center; justify-content: center; gap: 1.2rem; padding-block: 2.5rem; color: var(--gold); }
   .chakana-divider span { width: min(10rem, 22vw); height: 1px; background: currentColor; opacity: .55; }
   .chakana-divider svg { width: 2.6rem; height: auto; }
