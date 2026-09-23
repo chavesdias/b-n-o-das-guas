@@ -342,7 +342,7 @@ function Index() {
 
         <div className="water-gallery" aria-label="Águas e paisagens do Lago Titicaca">
           <figure className="gallery-tall">
-            <img src="/galeria-altar.jpg" alt="Altar de pedra diante do Lago Titicaca" loading="lazy" width={1600} height={1537} />
+            <img src="/galeria-chakana-alta.jpg" alt="Chakana de pedra com a Flor da Vida, diante do Lago Titicaca" loading="lazy" width={1224} height={1530} />
           </figure>
           <figure className="gallery-wide">
             <img src="/galeria-lago.jpg" alt="Muros de pedra e as águas azuis do Lago Titicaca" loading="lazy" width={1600} height={900} />
