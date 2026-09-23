@@ -259,7 +259,7 @@ function Index() {
             <span>Alice Chaves</span>
           </div>
           <div className="hero-copy">
-            <p className="hero-kicker">Vivência online e ao vivo <span className="edition-tag">Edição Primavera 2026</span></p>
+            <p className="hero-kicker">Vivência online e ao vivo</p>
             <h1>Bênção<br />das Águas</h1>
             <p className="hero-description">
               Uma bênção recebida das águas do Lago Titicaca, para mover o que está travado em
@@ -272,6 +272,8 @@ function Index() {
               <i aria-hidden="true" />
               <Clock3 aria-hidden="true" size={19} strokeWidth={1.5} />
               <span>9h às 12h · Brasília</span>
+              <i aria-hidden="true" />
+              <span>Edição Primavera 2026</span>
             </div>
             <SignupLink light>Quero receber a Bênção</SignupLink>
           </div>
@@ -478,10 +480,9 @@ function Index() {
         <div className="section-shell">
           <SectionLabel>Inscrição</SectionLabel>
           <h2>Bênção das Águas</h2>
-          <p className="edition-tag edition-tag-solo">Edição Primavera 2026</p>
           <div className="offer-meta">
             <p>Vivência online e ao vivo pelo Zoom · domingo, 18 de outubro de 2026, das 9h às 12h (Brasília)</p>
-            <p>Gravação disponível por 30 dias</p>
+            <p>Gravação disponível por 30 dias · Edição Primavera 2026</p>
           </div>
           <div className="offer-grid">
             <div className="included-box">
