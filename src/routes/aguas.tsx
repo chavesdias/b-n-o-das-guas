@@ -552,6 +552,17 @@ function Index() {
         </div>
       </section>
 
+      <a
+        className="whatsapp-float"
+        href="https://wa.me/5531991354712?text=Oi%20Alice!%20Tenho%20uma%20d%C3%BAvida%20sobre%20a%20B%C3%AAn%C3%A7%C3%A3o%20das%20%C3%81guas."
+        target="_blank"
+        rel="noreferrer"
+        aria-label="Tirar dúvidas no WhatsApp"
+      >
+        <MessageCircle aria-hidden="true" size={22} strokeWidth={1.7} />
+        <span>Dúvidas?</span>
+      </a>
+
       <footer className="site-footer">
         <div className="footer-symbol"><Waves aria-hidden="true" size={30} strokeWidth={1} /></div>
         <h2>Que as águas abram os seus caminhos mais leves e verdadeiros.</h2>
