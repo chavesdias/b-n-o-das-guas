@@ -259,7 +259,7 @@ function Index() {
             <span>Alice Chaves</span>
           </div>
           <div className="hero-copy">
-            <p className="hero-kicker">Vivência online e ao vivo</p>
+            <p className="hero-kicker">Vivência online e ao vivo <span className="edition-tag">Edição Primavera 2026</span></p>
             <h1>Bênção<br />das Águas</h1>
             <p className="hero-description">
               Uma bênção recebida das águas do Lago Titicaca, para mover o que está travado em
@@ -346,7 +346,7 @@ function Index() {
             <img src="/galeria-lago.jpg" alt="Muros de pedra e as águas azuis do Lago Titicaca" loading="lazy" width={1600} height={900} />
           </figure>
           <figure className="gallery-small">
-            <img src="/galeria-chakana.jpg" alt="Chakana de pedra e o altar diante das águas do Titicaca" loading="lazy" width={1600} height={939} />
+            <img src="/galeria-margem.jpg" alt="Margem de pedras e as águas do Lago Titicaca" loading="lazy" width={1600} height={928} />
           </figure>
         </div>
       </section>
@@ -477,7 +477,8 @@ function Index() {
         <ChakanaIcon className="chakana-watermark" />
         <div className="section-shell">
           <SectionLabel>Inscrição</SectionLabel>
-          <h2>Bênção das Águas · Edição Primavera 26</h2>
+          <h2>Bênção das Águas</h2>
+          <p className="edition-tag edition-tag-solo">Edição Primavera 2026</p>
           <div className="offer-meta">
             <p>Vivência online e ao vivo pelo Zoom · domingo, 18 de outubro de 2026, das 9h às 12h (Brasília)</p>
             <p>Gravação disponível por 30 dias</p>
@@ -526,7 +527,8 @@ function Index() {
           <p>
             Por isso, a Bênção das Águas não termina em nós. Uma parte de cada inscrição será
             destinada a uma iniciativa que cuida das águas, dos territórios e das comunidades que
-            delas dependem.
+            delas dependem. A cada edição, alguma iniciativa é cuidadosamente selecionada e
+            contemplada.
           </p>
           <p className="closing-line">
             Ao participar, você entra em um ciclo maior de reciprocidade. É o nosso Ayni.
