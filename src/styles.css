@@ -346,6 +346,9 @@
   .ayni-section { padding-block: 6rem; text-align: center; background: var(--sky); box-shadow: 0 0 0 100vmax var(--sky); clip-path: inset(0 -100vmax); }
   .ayni-section .narrow-copy { margin-inline: auto; }
   .ayni-section p:not(.section-label):not(.closing-line) { margin-top: 1.2rem; color: var(--muted-foreground); line-height: 1.75; }
+  .edition-tag { display: inline-block; margin-left: .7rem; padding: .18rem .6rem; border: 1px solid color-mix(in oklab, currentColor 45%, transparent); border-radius: 999px; font-size: .68rem; letter-spacing: .12em; text-transform: uppercase; opacity: .85; }
+  .edition-tag-solo { margin: .8rem auto 0; margin-left: auto; color: var(--gold-soft); }
+  .questions-list p { max-width: 44rem; margin-inline: auto; text-wrap: balance; }
   .chakana-divider { display: flex; align-items: center; justify-content: center; gap: 1.2rem; padding-block: 2.5rem; color: var(--gold); }
   .chakana-divider span { width: min(10rem, 22vw); height: 1px; background: currentColor; opacity: .55; }
   .chakana-divider svg { width: 2.6rem; height: auto; }
