@@ -21,7 +21,7 @@ import {
 
 
 const paymentLink = "https://www.sympla.com.br/evento-online/bencao-das-aguas-edicao-primavera-26/3589447";
-const youtubeLink = "[LINK DO YOUTUBE]";
+const youtubeLink = "https://youtube.com/shorts/hfge3eNAZaA";
 
 export const Route = createFileRoute("/aguas")({
   head: () => ({
