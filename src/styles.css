@@ -1,440 +1,571 @@
-@import "tailwindcss" source(none);
-@source "../src";
-@import "tw-animate-css";
+import { useState } from "react";
+import { createFileRoute } from "@tanstack/react-router";
+import {
+  ArrowDown,
+  ArrowUpRight,
+  CalendarDays,
+  Check,
+  Clock3,
+  Gift,
+  Heart,
+  Instagram,
+  Mail,
+  MessageCircle,
+  Play,
+  ShieldCheck,
+  X,
+  Sparkles,
+  Video,
+  Waves,
+} from "lucide-react";
 
-@custom-variant dark (&:is(.dark *));
 
-/*
- * Design system definition.
- *
- * The @theme inline block maps CSS custom properties to Tailwind utility
- * classes (e.g. --color-primary -> bg-primary, text-primary).
- *
- * The :root and .dark blocks define the actual color values using oklch.
- * All colors MUST use oklch format.
- *
- * To add a new semantic color:
- * 1. Add the variable to :root (light value) and .dark (dark value)
- * 2. Register it in @theme inline as --color-<name>: var(--<name>)
- */
+const paymentLink = "https://www.sympla.com.br/evento-online/bencao-das-aguas-edicao-primavera-26/3589447";
+const youtubeLink = "[LINK DO YOUTUBE]";
 
-@theme inline {
-  --font-sans: "Work Sans", sans-serif;
-  --font-serif: "Fraunces", serif;
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
-  --radius-2xl: calc(var(--radius) + 8px);
-  --radius-3xl: calc(var(--radius) + 12px);
-  --radius-4xl: calc(var(--radius) + 16px);
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-card: var(--card);
-  --color-card-foreground: var(--card-foreground);
-  --color-popover: var(--popover);
-  --color-popover-foreground: var(--popover-foreground);
-  --color-primary: var(--primary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-secondary: var(--secondary);
-  --color-secondary-foreground: var(--secondary-foreground);
-  --color-muted: var(--muted);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-accent: var(--accent);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-destructive: var(--destructive);
-  --color-destructive-foreground: var(--destructive-foreground);
-  --color-border: var(--border);
-  --color-input: var(--input);
-  --color-ring: var(--ring);
-  --color-ring-offset-background: var(--background);
-  --color-chart-1: var(--chart-1);
-  --color-chart-2: var(--chart-2);
-  --color-chart-3: var(--chart-3);
-  --color-chart-4: var(--chart-4);
-  --color-chart-5: var(--chart-5);
-  --color-sidebar: var(--sidebar);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-ring: var(--sidebar-ring);
-  --color-deep-water: var(--deep-water);
-  --color-lagoon: var(--lagoon);
-  --color-lagoon-soft: var(--lagoon-soft);
-  --color-sand: var(--sand);
-  --color-sand-deep: var(--sand-deep);
-  --color-gold: var(--gold);
-  --color-gold-soft: var(--gold-soft);
-  --color-foam: var(--foam);
+export const Route = createFileRoute("/aguas")({
+  head: () => ({
+    meta: [
+      { title: "Bênção das Águas com Alice Chaves · Vivência online" },
+      {
+        name: "description",
+        content:
+          "Vivência online e ao vivo, inspirada nas águas sagradas do Lago Titicaca, para equilibrar sua força criativa e sua expressão autêntica. 18 de outubro, das 9h às 12h.",
+      },
+      { property: "og:title", content: "Bênção das Águas com Alice Chaves" },
+      {
+        property: "og:description",
+        content:
+          "Vivência online e ao vivo, inspirada nas águas sagradas do Lago Titicaca. 18 de outubro, das 9h às 12h.",
+      },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+  }),
+  component: Index,
+});
+
+
+const keywords = [
+  "Equilíbrio emocional",
+  "Fluxo",
+  "Voz autêntica",
+  "Criatividade",
+  "Acolhimento",
+  "Ancestralidade",
+  "Poder de criação e manifestação",
+  "Leveza",
+  "Conexão com os ritmos da Natureza",
+  "Clareza",
+  "Relacionamentos saudáveis",
+];
+
+const journeyItems = [
+  "Uma breve introdução à cosmologia andina, para viver mais conectada com a sua real natureza",
+  "O simbolismo e o poder oculto das águas",
+  "Acesso a uma prática ancestral que te apoia a manifestar a vida dos seus sonhos",
+  "A Bênção das Águas, através de uma leve e profunda visualização guiada",
+];
+
+const audienceItems = [
+  "Equilibrar as suas emoções e se expressar com mais verdade",
+  "Harmonizar a relação com a mãe simbólica e real, com filhas e/ou com a ancestralidade feminina",
+  "Levar cuidado energético às regiões do útero, do ventre e da garganta",
+  "Uma vida mais criativa, trilhando seu próprio caminho",
+  "Viver mais no fluxo, em harmonia com os ritmos naturais da Terra",
+  "Vivenciar um caminho leve e autêntico para honrar o seu aspecto feminino",
+];
+
+// Depoimentos: troque [Nome] e [Cidade] depois de pedir autorização a cada pessoa.
+const testimonials = [
+  {
+    text: "Acordei com um senso de serenidade muito grande. Aquela urgência que a gente cria na cabeça, de que tudo precisa acontecer agora, foi embora. Eu já sabia disso racionalmente, mas depois do seu atendimento esse entendimento passou para o corpo. Sinto uma paz profunda.",
+    name: "Mariana N.",
+    city: "",
+  },
+  {
+    text: "Estou sentindo novos caminhos se abrindo. Parecia que antes estava tudo bloqueado, eu não conseguia enxergar perspectivas futuras. Agora os caminhos estão se abrindo de novo.",
+    name: "Daniela P.",
+    city: "",
+  },
+  {
+    text: "Se eu consegui chegar onde estou hoje, tenho certeza de que você e a sua energia me ajudaram, abrindo caminhos, abrindo minha mente e me fortalecendo para tomar a decisão que eu precisava tomar. Você é tão doce, tão sutil e, ao mesmo tempo, me ajudou a fazer transformações tão potentes.",
+    name: "Cláudia C.",
+    city: "",
+  },
+];
+
+const faqItems = [
+  {
+    question: "Preciso ter alguma experiência?",
+    answer:
+      "Não. A vivência é para quem está começando agora e também para quem já caminha há tempo. Basta disponibilidade para estar presente.",
+  },
+  {
+    question: "Preciso ter um útero?",
+    answer:
+      "Não. A vivência é aberta a todas as pessoas, independentemente de gênero ou corpo. A Bênção atua nos corpos sutis.",
+  },
+  {
+    question: "A vivência segue alguma religião?",
+    answer:
+      "Não. Aplicamos conceitos espirituais universalistas e a sabedoria da natureza.",
+  },
+  {
+    question: "Não posso estar ao vivo. Posso assistir depois?",
+    answer: "Sim. A gravação fica disponível por 30 dias para você assistir quando quiser.",
+  },
+  {
+    question: "Como recebo o link de acesso?",
+    answer:
+      "Com a compra confirmada, o Sympla envia a confirmação por e-mail e você é adicionada a um grupo silencioso e temporário no WhatsApp. Por lá eu envio o link do Zoom e os materiais complementares.",
+  },
+  {
+    question: "Tenho garantia?",
+    answer:
+      "Sim. Você tem 7 dias de garantia após a compra: se sentir que a vivência não é para você, basta pedir e devolvemos 100% do valor.",
+  },
+  {
+    question: "O que preciso para participar?",
+    answer:
+      "Um lugar tranquilo, seu computador ou celular com acesso ao Zoom, um copo com água e um caderno para anotações.",
+  },
+];
+
+const notForItems = [
+  "Procura processos catárticos ou intensos para sentir que \"aconteceu algo\"",
+  "Espera uma solução milagrosa, sem se abrir ao próprio processo",
+  "Busca fortalecer a polarização entre feminino e masculino",
+];
+
+const includedItems = [
+  "Vivência de 3 horas ao vivo pelo Zoom",
+  "A Bênção das Águas",
+  "O simbolismo das águas e uma introdução à cosmologia andina",
+  "Áudio de Conexão para manter a prática no dia a dia",
+  "Gravação completa por 30 dias",
+  "Grupo silencioso e temporário no WhatsApp, só para o link e os materiais",
+];
+
+function SignupLink({ children, light = false }: { children: React.ReactNode; light?: boolean }) {
+  return (
+    <a
+      href={paymentLink}
+      target="_blank"
+      rel="noreferrer"
+      className={light ? "button-sacred button-sacred-light" : "button-sacred"}
+    >
+      {children}
+      <ArrowUpRight aria-hidden="true" size={18} strokeWidth={1.6} />
+    </a>
+  );
 }
 
-:root {
-  --radius: 0.35rem;
-  --background: #F7F4EF;
-  --foreground: #1F3563;
-  --card: #F7F4EF;
-  --card-foreground: #1F3563;
-  --popover: #F7F4EF;
-  --popover-foreground: #1F3563;
-  --primary: #A0505E;
-  --primary-foreground: #FFFFFF;
-  --secondary: #5585C7;
-  --secondary-foreground: #FFFFFF;
-  --muted: #F2E3E0;
-  --muted-foreground: #4A5A6E;
-  --accent: #A8683F;
-  --accent-foreground: #FFFFFF;
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.984 0.003 247.858);
-  --border: color-mix(in oklab, #1F3563 16%, transparent);
-  --input: oklch(0.929 0.013 255.508);
-  --ring: oklch(0.704 0.04 256.788);
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
-  --sidebar: oklch(0.984 0.003 247.858);
-  --sidebar-foreground: oklch(0.129 0.042 264.695);
-  --sidebar-primary: oklch(0.208 0.042 265.755);
-  --sidebar-primary-foreground: oklch(0.984 0.003 247.858);
-  --sidebar-accent: oklch(0.968 0.007 247.896);
-  --sidebar-accent-foreground: oklch(0.208 0.042 265.755);
-  --sidebar-border: oklch(0.929 0.013 255.508);
-  --sidebar-ring: oklch(0.704 0.04 256.788);
-  /* Paleta Bênção das Águas — Sacerdotisa: índigo (mistério), céu (voz), pedra (altar), rosa-névoa (colo), vinho (convite), caramelo (terra) */
-  --deep-water: #1F3563;   /* índigo */
-  --lagoon: #5585C7;       /* azul-céu */
-  --lagoon-soft: #F2E3E0;  /* rosa-névoa */
-  --sand: #F2E3E0;         /* rosa-névoa */
-  --sand-deep: #E6CFCB;
-  --gold: #A8683F;         /* caramelo do chapéu */
-  --gold-soft: #D9A07C;    /* caramelo claro, para fundos escuros */
-  --olive: #A8683F;        /* ícones e marcadores (caramelo) */
-  --foam: #F7F4EF;
-  --sky: #F2E3E0;          /* rosa-névoa: terceira cor de fundo */
-  --purchase: #A0505E;     /* vinho do casaco — cor dos botões de compra (troque aqui) */
-  --purchase-foreground: #FFFFFF;
+function SectionLabel({ children }: { children: React.ReactNode }) {
+  return (
+    <p className="section-label">
+      <span aria-hidden="true" />
+      {children}
+      <span aria-hidden="true" />
+    </p>
+  );
 }
 
-.dark {
-  --background: oklch(0.129 0.042 264.695);
-  --foreground: oklch(0.984 0.003 247.858);
-  --card: oklch(0.208 0.042 265.755);
-  --card-foreground: oklch(0.984 0.003 247.858);
-  --popover: oklch(0.208 0.042 265.755);
-  --popover-foreground: oklch(0.984 0.003 247.858);
-  --primary: oklch(0.929 0.013 255.508);
-  --primary-foreground: oklch(0.208 0.042 265.755);
-  --secondary: oklch(0.279 0.041 260.031);
-  --secondary-foreground: oklch(0.984 0.003 247.858);
-  --muted: oklch(0.279 0.041 260.031);
-  --muted-foreground: oklch(0.704 0.04 256.788);
-  --accent: oklch(0.279 0.041 260.031);
-  --accent-foreground: oklch(0.984 0.003 247.858);
-  --destructive: oklch(0.704 0.191 22.216);
-  --destructive-foreground: oklch(0.984 0.003 247.858);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.551 0.027 264.364);
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.208 0.042 265.755);
-  --sidebar-foreground: oklch(0.984 0.003 247.858);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.984 0.003 247.858);
-  --sidebar-accent: oklch(0.279 0.041 260.031);
-  --sidebar-accent-foreground: oklch(0.984 0.003 247.858);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.551 0.027 264.364);
+function youtubeEmbed(url: string) {
+  const m = url.match(/(?:youtu\.be\/|v=|shorts\/|embed\/)([\w-]{11})/);
+  return m ? `https://www.youtube-nocookie.com/embed/${m[1]}?autoplay=1&rel=0` : null;
 }
 
-@layer base {
-  html { font-size: 106.25%; }
-  * {
-    border-color: var(--color-border);
-  }
-
-  body {
-    background-color: var(--color-background);
-    color: var(--color-foreground);
-    font-family: var(--font-sans);
-    letter-spacing: 0;
-    margin: 0;
-    text-rendering: optimizeLegibility;
-  }
-
-  html { scroll-behavior: smooth; }
-
-  h1, h2, h3 { font-family: var(--font-serif); font-weight: 300; letter-spacing: 0; line-height: 1.1; word-break: normal; overflow-wrap: normal; hyphens: none; }
-
-  ::selection { background: var(--lagoon); color: var(--purchase-foreground); }
+function VideoCard() {
+  const [playing, setPlaying] = useState(false);
+  const embed = youtubeEmbed(youtubeLink);
+  return (
+    <div className="video-placeholder">
+      {playing && embed ? (
+        <iframe
+          className="video-embed"
+          src={embed}
+          title="Mensagem de Alice às margens do Titicaca"
+          allow="autoplay; encrypted-media; picture-in-picture"
+          allowFullScreen
+        />
+      ) : (
+        <>
+          <img
+            src="/folhas-coca.jpg"
+            alt="Folhas de coca oferecidas às águas do Lago Titicaca"
+            className="video-water-texture video-photo"
+            loading="lazy"
+            width={1200}
+            height={1600}
+          />
+          {embed ? (
+            <button type="button" onClick={() => setPlaying(true)} aria-label="Assistir à mensagem de Alice">
+              <span className="play-button"><Play aria-hidden="true" size={24} fill="currentColor" /></span>
+              <span>Assistir à mensagem de Alice</span>
+            </button>
+          ) : (
+            <a href={youtubeLink} target="_blank" rel="noreferrer" aria-label="Assistir ao vídeo no YouTube">
+              <span className="play-button"><Play aria-hidden="true" size={24} fill="currentColor" /></span>
+              <span>Assistir à mensagem de Alice</span>
+            </a>
+          )}
+        </>
+      )}
+    </div>
+  );
 }
 
-@layer components {
-  .section-shell { width: min(100% - 2.5rem, 73rem); margin-inline: auto; padding-block: 7rem; }
-  .section-label { display: flex; align-items: center; gap: .8rem; color: var(--gold); font-size: 0.82rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; }
-  .section-label span { width: 1.75rem; height: 1px; background: currentColor; }
-  .button-sacred { display: inline-flex; align-items: center; justify-content: center; gap: .7rem; min-height: 3.5rem; padding: .85rem 1.4rem; border: 1px solid var(--purchase); border-radius: var(--radius); background: var(--purchase); color: var(--purchase-foreground); font-size: 0.92rem; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; transition: transform .25s ease, background .25s ease, border-color .25s ease; }
-  .button-sacred:hover { transform: translateY(-2px); background: color-mix(in oklab, var(--purchase) 85%, var(--deep-water)); border-color: color-mix(in oklab, var(--purchase) 85%, var(--deep-water)); }
-  .button-sacred-light { background: var(--purchase); border-color: var(--purchase); color: var(--purchase-foreground); }
-  .button-sacred-light:hover { background: color-mix(in oklab, var(--purchase) 85%, var(--deep-water)); border-color: color-mix(in oklab, var(--purchase) 85%, var(--deep-water)); color: var(--purchase-foreground); }
-
-  .hero-section { position: relative; min-height: 94svh; color: var(--foam); }
-  .hero-image { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 45%; }
-  .hero-overlay { position: absolute; inset: 0; background: linear-gradient(90deg, color-mix(in oklab, var(--deep-water) 72%, transparent) 0%, color-mix(in oklab, var(--deep-water) 34%, transparent) 48%, transparent 78%), linear-gradient(0deg, color-mix(in oklab, var(--deep-water) 28%, transparent), transparent 40%); }
-  .hero-content { position: relative; z-index: 1; width: min(100% - 2.5rem, 76rem); min-height: 94svh; margin-inline: auto; display: flex; flex-direction: column; padding-block: 2rem 2.5rem; }
-  .brand-mark { display: flex; align-items: center; gap: .65rem; font-family: var(--font-serif); font-size: 1.15rem; }
-  .hero-copy { margin-block: auto; max-width: 49rem; padding-block: 3rem; animation: rise-in 1.1s ease both; }
-  .hero-kicker { margin-bottom: 1rem; color: var(--gold-soft); font-size: 0.84rem; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; }
-  .hero-copy h1 { font-size: clamp(2.75rem, 8vw, 6rem); line-height: 1.1; padding-top: .2em; text-wrap: balance; }
-  .hero-description { max-width: 42rem; margin-top: 2.2rem; font-family: var(--font-serif); font-size: clamp(1.3rem, 2.3vw, 1.75rem); line-height: 1.35; }
-  .hero-date { display: flex; align-items: center; flex-wrap: wrap; gap: .6rem; margin: 1.9rem 0 2.2rem; font-size: 0.96rem; }
-  .hero-date i { width: 1px; height: 1rem; background: color-mix(in oklab, var(--foam) 42%, transparent); margin-inline: .35rem; }
-  .scroll-cue { align-self: flex-end; display: flex; align-items: center; gap: .6rem; color: color-mix(in oklab, var(--foam) 74%, transparent); font-size: 0.80rem; text-transform: uppercase; letter-spacing: .12em; }
-  .scroll-cue svg { animation: float-down 2s ease-in-out infinite; }
-
-  .identification-section { text-align: center; }
-  .narrow-copy { max-width: 53rem; margin-inline: auto; }
-  .narrow-copy .section-label { justify-content: center; }
-  .narrow-copy h2 { margin: 1.6rem auto 2.6rem; font-size: clamp(2.4rem, 5vw, 4rem); line-height: 1.1; text-wrap: balance; }
-  .questions-list { color: var(--muted-foreground); font-size: 1.05rem; line-height: 1.8; }
-  .closing-line { margin-top: 3rem; color: var(--deep-water); font-family: var(--font-serif); font-size: clamp(1.7rem, 2.6vw, 2.2rem); line-height: 1.35; text-wrap: balance; }
-  .wave-divider { position: relative; height: 4rem; background: var(--background); overflow: hidden; }
-  .wave-divider::after { content: ""; position: absolute; left: -5%; bottom: -3rem; width: 110%; height: 6rem; border-radius: 50% 50% 0 0; background: var(--sky); }
-  .wave-divider-dark { background: var(--sky); }
-  .wave-divider-dark::after { background: var(--deep-water); }
-
-  .origin-section { padding-top: 5rem; background: var(--sky); box-shadow: 0 0 0 100vmax var(--sky); clip-path: inset(0 -100vmax); }
-  .content-grid { display: grid; grid-template-columns: .92fr 1.08fr; align-items: center; gap: clamp(3rem, 7vw, 7rem); }
-  .video-placeholder { position: relative; aspect-ratio: 4 / 5; min-height: 30rem; overflow: hidden; background: var(--deep-water); border-radius: var(--radius); box-shadow: 0 2rem 5rem color-mix(in oklab, var(--deep-water) 20%, transparent); }
-  .video-water-texture { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; filter: brightness(.64) saturate(.88); }
-  .video-placeholder > a { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1.2rem; color: var(--foam); font-size: 0.85rem; text-transform: uppercase; letter-spacing: .12em; }
-  .play-button { width: 4.5rem; height: 4.5rem; display: grid; place-items: center; border: 1px solid color-mix(in oklab, var(--foam) 70%, transparent); border-radius: 50%; backdrop-filter: blur(8px); transition: transform .3s ease, background .3s ease; }
-  .video-placeholder a:hover .play-button { transform: scale(1.08); background: color-mix(in oklab, var(--foam) 15%, transparent); }
-  .origin-copy h2, .journey-heading h2, .audience-title h2, .testimonials-section > h2, .details-heading h2, .investment-section h2, .faq-heading h2 { margin: 1.4rem 0 1.8rem; font-size: clamp(2.5rem, 4.5vw, 4.2rem); line-height: 1.1; text-wrap: balance; }
-  .origin-copy > p:not(.section-label) { margin-top: 1.2rem; color: var(--muted-foreground); line-height: 1.85; }
-  .origin-copy .origin-highlight { color: var(--deep-water); font-family: var(--font-serif); font-size: 1.45rem; line-height: 1.45; }
-  .water-gallery { display: grid; grid-template-columns: 1fr 1.25fr .8fr; grid-template-rows: 14rem 13rem; gap: 1rem; margin-top: 7rem; }
-  .water-gallery figure { overflow: hidden; border-radius: var(--radius); }
-  .water-gallery img { width: 100%; height: 100%; object-fit: cover; transition: transform .8s ease; }
-  .water-gallery figure:hover img { transform: scale(1.025); }
-  .gallery-tall { grid-row: 1 / 3; }
-  .gallery-wide { grid-column: 2 / 4; }
-  .gallery-small { grid-column: 2 / 4; }
-  .gallery-small img { object-position: center 78%; }
-
-  .deep-section { background: var(--deep-water); color: var(--foam); }
-  .deep-section .section-shell { padding-top: 5rem; }
-  .deep-intro { max-width: 54rem; }
-  .deep-intro h2 { margin: 1.6rem 0 1.5rem; font-size: clamp(2.7rem, 5.5vw, 4.7rem); line-height: 1.1; }
-  .deep-intro > p { max-width: 43rem; }
-  .deep-intro > p:last-child { max-width: 43rem; color: color-mix(in oklab, var(--foam) 72%, transparent); line-height: 1.75; }
-  .benefit-grid { display: grid; grid-template-columns: repeat(2, 1fr); margin-top: 4rem; border-top: 1px solid color-mix(in oklab, var(--foam) 18%, transparent); }
-  .benefit-item { display: grid; grid-template-columns: 3rem 1fr; gap: 1rem; padding: 2rem 1rem 2rem 0; border-bottom: 1px solid color-mix(in oklab, var(--foam) 18%, transparent); }
-  .benefit-item:nth-child(odd) { border-right: 1px solid color-mix(in oklab, var(--foam) 18%, transparent); }
-  .benefit-item:nth-child(even) { padding-left: 2rem; }
-  .benefit-item span { color: var(--gold-soft); font-family: var(--font-serif); font-style: italic; }
-  .benefit-item p { font-family: var(--font-serif); font-size: 1.4rem; line-height: 1.3; }
-
-  .journey-heading { max-width: 47rem; margin-inline: auto; text-align: center; }
-  .journey-heading .section-label { justify-content: center; }
-  .journey-heading > p { color: var(--muted-foreground); line-height: 1.7; }
-  .journey-list { max-width: 56rem; margin: 4rem auto; }
-  .journey-list li { display: grid; grid-template-columns: 4rem 1fr; align-items: baseline; padding: 1.6rem 0; border-bottom: 1px solid var(--border); }
-  .journey-list span { color: var(--gold); font-family: var(--font-serif); font-size: 1.2rem; font-style: italic; }
-  .journey-list p { font-family: var(--font-serif); font-size: clamp(1.35rem, 2.5vw, 1.8rem); line-height: 1.35; }
-  .bonus-band { max-width: 56rem; margin: 0 auto 2.5rem; display: grid; grid-template-columns: auto 1fr; gap: 1.5rem; padding: 1.75rem; border: 1px solid var(--sand-deep); background: var(--sand); }
-  .bonus-band svg { color: var(--gold); }
-  .bonus-band strong { font-family: var(--font-serif); font-size: 1.35rem; }
-  .bonus-band p { margin-top: .35rem; color: var(--muted-foreground); font-size: 0.90rem; }
-  .centered-action { display: flex; justify-content: center; }
-
-  .audience-section { padding-bottom: 7rem; background: var(--sky); }
-  .audience-inner { display: grid; grid-template-columns: .8fr 1.2fr; gap: clamp(3rem, 8vw, 8rem); padding-bottom: 3rem; }
-  .audience-title > p:last-child { color: var(--muted-foreground); line-height: 1.7; }
-  .audience-list > div { display: grid; grid-template-columns: 2rem 1fr; gap: .8rem; padding: 1.35rem 0; border-bottom: 1px solid color-mix(in oklab, var(--deep-water) 15%, transparent); }
-  .audience-list svg { color: var(--olive); margin-top: .15rem; }
-  .audience-list p { line-height: 1.6; }
-
-  .testimonials-section { text-align: center; }
-  .testimonials-section .section-label { justify-content: center; }
-  .demo-note { color: var(--muted-foreground); font-size: 0.90rem; }
-  .testimonial-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; margin-top: 3.5rem; text-align: left; }
-  .testimonial-grid blockquote { min-height: 19rem; display: flex; flex-direction: column; padding: 2rem; background: #FFFDF8; border: 1px solid #E3DCCD; border-top: 2px solid var(--gold); }
-  .testimonial-grid svg { color: var(--gold); }
-  .testimonial-grid blockquote > p { margin: 2rem 0 auto; font-family: var(--font-serif); font-size: 1.2rem; font-style: italic; line-height: 1.5; }
-  .testimonial-grid footer { margin-top: 2rem; font-size: 0.85rem; font-weight: 700; text-transform: uppercase; }
-  .testimonial-grid footer span { color: var(--muted-foreground); font-weight: 400; }
-
-  .guide-section { background: var(--background); }
-  .portrait-photo { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: 35% 40%; border-radius: 1.5rem; }
-  .guide-grid { display: grid; grid-template-columns: .85fr 1.15fr; align-items: center; gap: clamp(3rem, 8vw, 8rem); }
-  .portrait-placeholder { position: relative; isolation: isolate; aspect-ratio: 4 / 5; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1rem; overflow: hidden; background: var(--lagoon-soft); color: var(--deep-water); border-radius: 1.5rem; }
-  .portrait-placeholder::after { content: ""; position: absolute; inset: 1rem; border: 1px solid color-mix(in oklab, var(--deep-water) 18%, transparent); border-radius: inherit; z-index: -1; }
-  .portrait-placeholder span { font-family: var(--font-serif); font-style: italic; }
-  .portrait-rings { position: absolute; width: 18rem; height: 18rem; border: 1px solid color-mix(in oklab, var(--deep-water) 14%, transparent); border-radius: 50%; z-index: -1; }
-  .portrait-rings::before, .portrait-rings::after { content: ""; position: absolute; border: 1px solid color-mix(in oklab, var(--deep-water) 12%, transparent); border-radius: 50%; }
-  .portrait-rings::before { inset: 2rem; } .portrait-rings::after { inset: 4rem; }
-  .guide-copy h2 { margin-top: 1rem; font-size: clamp(3.4rem, 6vw, 5.6rem); line-height: 1.1; }
-  .guide-role { margin: .4rem 0 1.7rem; color: var(--gold); font-size: 0.83rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
-  .guide-copy > p:not(.section-label):not(.guide-role) { max-width: 35rem; color: var(--muted-foreground); line-height: 1.85; }
-  .guide-signature { margin-top: 2rem; font-family: var(--font-serif); font-size: 1.5rem; font-style: italic; }
-
-  .details-section { padding-bottom: 8rem; background: var(--sky); box-shadow: 0 0 0 100vmax var(--sky); clip-path: inset(0 -100vmax); }
-  .details-heading { max-width: 54rem; }
-  .details-grid { display: grid; grid-template-columns: repeat(4, 1fr); margin-top: 4rem; border-top: 1px solid var(--border); border-left: 1px solid var(--border); }
-  .details-grid article { min-height: 15rem; display: flex; flex-direction: column; padding: 1.5rem; border-right: 1px solid var(--border); border-bottom: 1px solid var(--border); }
-  .details-grid svg { color: var(--olive); stroke-width: 1.2; }
-  .details-grid span { margin-top: auto; color: var(--gold); font-size: 0.78rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
-  .details-grid strong { margin-top: .6rem; font-family: var(--font-serif); font-size: 1.15rem; font-weight: 400; line-height: 1.5; }
-
-  .investment-section { position: relative; overflow: hidden; padding-block: 7rem; background: var(--deep-water); color: var(--foam); text-align: center; }
-  .investment-section .chakana-watermark { position: absolute; right: -3rem; top: 50%; width: 22rem; transform: translateY(-50%); color: color-mix(in oklab, var(--foam) 9%, transparent); pointer-events: none; }
-  .investment-section .section-shell { position: relative; }
-  .audience-head { max-width: 46rem; }
-  .audience-head h2 { margin: 1.4rem 0 1.2rem; font-size: clamp(2.5rem, 4.5vw, 4.2rem); line-height: 1.1; text-wrap: balance; }
-  .audience-head > p:last-child { font-size: 1.05rem; }
-  .audience-head > p:last-child { color: var(--muted-foreground); line-height: 1.7; }
-  .audience-columns { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 3rem; padding-bottom: 3rem; }
-  .audience-card { padding: 2.2rem; background: #FFFDF8; border: 1px solid #E6CFCB; border-radius: var(--radius); }
-  .audience-card h3 { margin-bottom: 1rem; color: var(--deep-water); font-family: var(--font-serif); font-size: 1.6rem; font-weight: 300; }
-  .audience-card-not { background: transparent; border-style: dashed; }
-  .audience-card-not svg { color: var(--purchase); }
-  .audience-card .audience-list > div:last-child { border-bottom: 0; }
-  .offer-meta { max-width: 56rem; margin: 0 auto; border-top: 1px solid color-mix(in oklab, var(--foam) 18%, transparent); }
-  .offer-meta p { padding: .9rem 0; border-bottom: 1px solid color-mix(in oklab, var(--foam) 18%, transparent); color: color-mix(in oklab, var(--foam) 82%, transparent); font-size: .88rem; letter-spacing: .06em; text-transform: uppercase; }
-  .offer-grid { max-width: 64rem; margin: 3rem auto 0; display: grid; grid-template-columns: 1.1fr .9fr; gap: 1.5rem; text-align: left; }
-  .included-box { padding: 2.2rem; border: 1px solid color-mix(in oklab, var(--foam) 22%, transparent); }
-  .included-box h3 { color: var(--gold-soft); font-family: var(--font-sans); font-size: .82rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
-  .included-box ul { margin-top: 1.2rem; }
-  .included-box li { display: grid; grid-template-columns: 1.6rem 1fr; gap: .4rem; padding: .85rem 0; border-bottom: 1px solid color-mix(in oklab, var(--foam) 12%, transparent); color: color-mix(in oklab, var(--foam) 90%, transparent); line-height: 1.55; }
-  .included-box li svg { margin-top: .3rem; color: var(--gold-soft); }
-  .guarantee { display: flex; gap: .9rem; align-items: flex-start; margin-top: 1.6rem; padding: 1.1rem 1.2rem; border: 1px solid color-mix(in oklab, var(--gold-soft) 50%, transparent); border-radius: var(--radius); color: var(--foam); line-height: 1.55; }
-  .guarantee svg { flex-shrink: 0; color: var(--gold-soft); }
-  .offer-grid .price-grid { margin: 0; max-width: none; grid-template-columns: 1fr; align-content: start; }
-  .offer-grid .price-card { min-height: 0; }
-  .offer-grid .later-note { margin-top: 1rem; }
-  .secure-note { color: color-mix(in oklab, var(--foam) 62%, transparent); font-size: .85rem; text-align: center; }
-  .video-placeholder > button { position: absolute; inset: 0; width: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1.2rem; background: none; border: 0; cursor: pointer; color: var(--foam); font-size: .85rem; text-transform: uppercase; letter-spacing: .12em; }
-  .video-placeholder button:hover .play-button { transform: scale(1.08); background: color-mix(in oklab, var(--foam) 15%, transparent); }
-  .video-embed { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
-  .copyright { margin-top: 2rem; color: color-mix(in oklab, var(--foam) 55%, transparent); font-size: .8rem; }
-  /* Cantos arredondados nas caixas */
-  .included-box, .price-card, .audience-card, .testimonial-grid blockquote, .video-placeholder { border-radius: 1.25rem; overflow: hidden; }
-  .guarantee { border-radius: .9rem; }
-  .availability { border-radius: 999px; padding-inline: .75rem; }
-  .button-sacred { border-radius: .7rem; }
-  .keyword-tags { display: flex; flex-wrap: wrap; gap: .6rem; margin-top: 2.2rem; }
-  .keyword-tags li { padding: .5rem 1rem; border: 1px solid color-mix(in oklab, var(--gold-soft) 55%, transparent); border-radius: 999px; color: var(--foam); font-size: .9rem; letter-spacing: .02em; }
-  .benefit-item:last-child:nth-child(odd) { grid-column: 1 / -1; border-right: 0; }
-  .hero-themes { margin-top: 1rem; color: color-mix(in oklab, var(--foam) 82%, transparent); font-size: .95rem; letter-spacing: .04em; }
-  .highlights-section { padding-block: 4.5rem 1rem; }
-  .highlights-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
-  .highlights-strip article { padding: 1.8rem; background: #FFFDF8; border: 1px solid #E6CFCB; border-radius: 1.25rem; }
-  .highlights-strip svg { color: var(--gold); }
-  .highlights-strip strong { display: block; margin: .8rem 0 .4rem; color: var(--deep-water); font-family: var(--font-serif); font-size: 1.35rem; font-weight: 400; }
-  .highlights-strip p { color: var(--muted-foreground); line-height: 1.6; }
-  .origin-highlight { margin-top: 1.4rem; color: var(--deep-water); font-family: var(--font-serif); font-size: 1.45rem; line-height: 1.4; }
-  .guide-registry { margin-top: 1.4rem; color: var(--muted-foreground); font-size: .85rem; letter-spacing: .06em; }
-  .ayni-section { padding-block: 6rem; text-align: center; background: var(--sky); box-shadow: 0 0 0 100vmax var(--sky); clip-path: inset(0 -100vmax); }
-  .ayni-section .narrow-copy { margin-inline: auto; }
-  .ayni-section p:not(.section-label):not(.closing-line) { margin-top: 1.2rem; color: var(--muted-foreground); line-height: 1.75; }
-  .edition-tag { display: inline-block; margin-left: .7rem; padding: .18rem .6rem; border: 1px solid color-mix(in oklab, currentColor 45%, transparent); border-radius: 999px; font-size: .68rem; letter-spacing: .12em; text-transform: uppercase; opacity: .85; }
-  .edition-tag-solo { margin: .8rem auto 0; margin-left: auto; color: var(--gold-soft); }
-  .questions-list p { max-width: 44rem; margin-inline: auto; text-wrap: balance; }
-  .chakana-divider { display: flex; align-items: center; justify-content: center; gap: 1.2rem; padding-block: 2.5rem; color: var(--gold); }
-  .chakana-divider span { width: min(10rem, 22vw); height: 1px; background: currentColor; opacity: .55; }
-  .chakana-divider svg { width: 2.6rem; height: auto; }
-  .video-water-texture.video-photo { filter: brightness(.78) saturate(1); object-position: center 30%; }
-  .investment-section .section-shell { padding-block: 0; }
-  .investment-section .section-label { justify-content: center; }
-  .price-grid { max-width: 48rem; margin: 3.5rem auto 0; display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.2rem; text-align: left; }
-  .price-card { position: relative; min-height: 24rem; display: flex; flex-direction: column; padding: 2.2rem; border: 1px solid color-mix(in oklab, var(--foam) 22%, transparent); }
-  .price-card.featured { background: var(--foam); color: var(--deep-water); border-color: var(--foam); }
-  .availability { position: absolute; top: 1rem; right: 1rem; display: inline-flex; gap: .25rem; padding: .35rem .55rem; background: var(--gold-soft); color: var(--deep-water); font-size: 0.73rem; font-weight: 800; text-transform: uppercase; }
-  .price-card > p:first-of-type { color: var(--gold); font-size: 0.82rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
-  .price { display: flex; align-items: flex-start; margin-top: 2rem; font-family: var(--font-serif); }
-  .price small { margin-top: .8rem; font-size: 1.25rem; }
-  .price strong { font-size: 5.2rem; font-weight: 400; line-height: .9; }
-  .price-card > span:not(.availability) { margin-top: .5rem; color: var(--muted-foreground); font-size: 0.90rem; }
-  .price-card .button-sacred { margin-top: auto; }
-  .later-note { margin-top: auto; color: color-mix(in oklab, var(--foam) 56%, transparent); font-size: 0.93rem; line-height: 1.6; }
-
-  .faq-section { display: grid; grid-template-columns: .8fr 1.2fr; gap: clamp(3rem, 8vw, 8rem); }
-  .faq-list details { border-bottom: 1px solid var(--border); }
-  .faq-list summary { display: flex; justify-content: space-between; gap: 1rem; padding: 1.5rem 0; cursor: pointer; list-style: none; font-family: var(--font-serif); font-size: 1.3rem; }
-  .faq-list summary::-webkit-details-marker { display: none; }
-  .faq-list summary span { color: var(--gold); font-family: var(--font-sans); transition: transform .25s ease; }
-  .faq-list details[open] summary span { transform: rotate(45deg); }
-  .faq-list details > p { max-width: 37rem; padding: 0 2.5rem 1.5rem 0; color: var(--muted-foreground); line-height: 1.7; }
-
-  .site-footer { padding: 6rem max(1.25rem, calc((100% - 76rem) / 2)); background: var(--deep-water); color: var(--foam); text-align: center; }
-  .footer-symbol { width: 4rem; height: 4rem; display: grid; place-items: center; margin: 0 auto 2rem; border: 1px solid color-mix(in oklab, var(--foam) 30%, transparent); border-radius: 50%; color: var(--gold-soft); }
-  .site-footer > h2 { max-width: 45rem; margin: 0 auto 2.5rem; font-size: clamp(3rem, 6vw, 5.5rem); line-height: 1.1; }
-  .footer-bottom { display: grid; grid-template-columns: .6fr 1fr 1.5fr; align-items: end; gap: 2rem; margin-top: 7rem; padding-top: 2rem; border-top: 1px solid color-mix(in oklab, var(--foam) 16%, transparent); text-align: left; }
-  .footer-brand { font-family: var(--font-serif); font-size: 1.3rem; }
-  .footer-bottom nav { display: flex; gap: 1.2rem; }
-  .footer-bottom nav a, .footer-bottom nav span { display: inline-flex; align-items: center; gap: .35rem; font-size: 0.82rem; }
-  .footer-bottom > p { color: color-mix(in oklab, var(--foam) 55%, transparent); font-size: 0.77rem; line-height: 1.55; }
+function ChakanaIcon({ className }: { className?: string }) {
+  return (
+    <svg viewBox="-3.7 -4.9 7.4 8.6" className={className} fill="none" stroke="currentColor" strokeWidth="0.16" strokeLinejoin="round" aria-hidden="true">
+      <path d="M-1 -3H1V-2H2V-1H3V1H2V2H1V3H-1V2H-2V1H-3V-1H-2V-2H-1Z" />
+      <circle cx="0" cy="0" r="0.55" />
+      <circle cx="0" cy="-3.95" r="0.45" />
+    </svg>
+  );
 }
 
-@keyframes rise-in { from { opacity: 0; transform: translateY(1.5rem); } to { opacity: 1; transform: translateY(0); } }
-@keyframes float-down { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(.35rem); } }
-
-@media (max-width: 800px) {
-  .highlights-strip { grid-template-columns: 1fr; }
-  .audience-columns, .offer-grid { grid-template-columns: 1fr; }
-  .section-shell { width: min(100% - 2rem, 40rem); padding-block: 5rem; }
-  .hero-section, .hero-content { min-height: 92svh; }
-  .hero-image { object-position: 60% center; }
-  .hero-overlay { background: linear-gradient(0deg, color-mix(in oklab, var(--deep-water) 90%, transparent) 0%, color-mix(in oklab, var(--deep-water) 54%, transparent) 70%, color-mix(in oklab, var(--deep-water) 30%, transparent) 100%); }
-  .hero-copy { padding-top: 5rem; }
-  .hero-copy h1 { font-size: clamp(2.75rem, 12vw, 6rem); }
-  .hero-date { align-items: flex-start; }
-  .hero-date i { display: none; }
-  .hero-date span { width: calc(100% - 2rem); }
-  .scroll-cue { display: none; }
-  .content-grid, .audience-inner, .guide-grid, .faq-section { grid-template-columns: 1fr; }
-  .video-placeholder { aspect-ratio: 4 / 4.5; min-height: 0; }
-  .content-grid { gap: 3.5rem; }
-  .water-gallery { grid-template-columns: 1fr 1fr; grid-template-rows: 18rem 12rem; margin-top: 4rem; }
-  .gallery-tall { grid-row: 1 / 3; }
-  .gallery-wide, .gallery-small { grid-column: 2; }
-  .benefit-grid, .testimonial-grid, .price-grid { grid-template-columns: 1fr; }
-  .benefit-item:nth-child(odd) { border-right: 0; }
-  .benefit-item:nth-child(even) { padding-left: 0; }
-  .journey-list li { grid-template-columns: 3rem 1fr; }
-  .audience-section { padding-bottom: 5rem; }
-  .audience-inner { gap: 1rem; }
-  .testimonial-grid blockquote { min-height: 15rem; }
-  .portrait-placeholder, .portrait-photo { max-height: 34rem; }
-  .details-grid { grid-template-columns: repeat(2, 1fr); }
-  .details-grid article { min-height: 13rem; }
-  .price-card { min-height: 22rem; }
-  .faq-section { gap: 1rem; }
-  .footer-bottom { grid-template-columns: 1fr; margin-top: 5rem; text-align: center; justify-items: center; }
-  .footer-bottom nav { flex-wrap: wrap; justify-content: center; }
+function ChakanaDivider() {
+  return (
+    <div className="chakana-divider" aria-hidden="true">
+      <span />
+      <ChakanaIcon />
+      <span />
+    </div>
+  );
 }
 
-@media (max-width: 480px) {
-  .button-sacred { width: 100%; }
-  .hero-description { font-size: 1.22rem; }
-  .water-gallery { height: 29rem; grid-template-columns: 1fr 1fr; }
-  .benefit-item p { font-size: 1.2rem; }
-  .details-grid { grid-template-columns: 1fr; }
-  .details-grid article { min-height: 11rem; }
-  .bonus-band { grid-template-columns: 1fr; }
-  .site-footer { padding-inline: 1rem; }
+function WaveDivider({ dark = false }: { dark?: boolean }) {
+  return <div className={dark ? "wave-divider wave-divider-dark" : "wave-divider"} aria-hidden="true" />;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
-  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+function Index() {
+  return (
+    <main className="overflow-hidden bg-background text-foreground">
+      <section className="hero-section">
+        <img
+          src="/titicaca-aguas.jpg"
+          alt="Amanhecer sobre as águas calmas do Lago Titicaca, com montanhas ao fundo"
+          className="hero-image"
+          width={1920}
+          height={1280}
+          fetchPriority="high"
+        />
+        <div className="hero-overlay" />
+        <div className="hero-content">
+          <div className="brand-mark" aria-label="Alice Chaves">
+            <Waves aria-hidden="true" size={24} strokeWidth={1.2} />
+            <span>Alice Chaves</span>
+          </div>
+          <div className="hero-copy">
+            <p className="hero-kicker">Vivência online e ao vivo <span className="edition-tag">Edição Primavera 2026</span></p>
+            <h1>Bênção<br />das Águas</h1>
+            <p className="hero-description">
+              Uma bênção recebida das águas do Lago Titicaca, para mover o que está travado em
+              sua vida.
+            </p>
+            <p className="hero-themes">Equilíbrio emocional · Ancestralidade · Criatividade e voz autêntica</p>
+            <div className="hero-date">
+              <CalendarDays aria-hidden="true" size={19} strokeWidth={1.5} />
+              <span>18 de outubro de 2026</span>
+              <i aria-hidden="true" />
+              <Clock3 aria-hidden="true" size={19} strokeWidth={1.5} />
+              <span>9h às 12h · Brasília</span>
+            </div>
+            <SignupLink light>Quero receber a Bênção</SignupLink>
+          </div>
+          <a href="#identificacao" className="scroll-cue" aria-label="Ir para o conteúdo">
+            <span>Desça para sentir</span>
+            <ArrowDown aria-hidden="true" size={18} />
+          </a>
+        </div>
+      </section>
+
+      <section className="section-shell highlights-section">
+        <div className="highlights-strip">
+          <article>
+            <Clock3 aria-hidden="true" size={22} strokeWidth={1.4} />
+            <strong>3 horas ao vivo</strong>
+            <p>Uma manhã de conhecimento, prática e a Bênção das Águas.</p>
+          </article>
+          <article>
+            <Video aria-hidden="true" size={22} strokeWidth={1.4} />
+            <strong>Gravação por 30 dias</strong>
+            <p>Não pode estar ao vivo? Assista no seu tempo.</p>
+          </article>
+          <article>
+            <Gift aria-hidden="true" size={22} strokeWidth={1.4} />
+            <strong>Material complementar</strong>
+            <p>Se quiser continuar suas práticas em casa.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="identificacao" className="section-shell identification-section">
+        <div className="narrow-copy reveal-block">
+          <SectionLabel>Um convite</SectionLabel>
+          <h2>Tem algo que precisa mudar, mas você não sabe muito bem como?</h2>
+          <div className="questions-list">
+            <p>Talvez a vida pareça travada, sem brilho.</p>
+            <p>Talvez as emoções estejam desequilibradas, oscilando mais do que você gostaria.</p>
+            <p>Talvez você venha de relações que te esvaziaram, e ainda esteja se desvencilhando delas.</p>
+            <p>Ou talvez seja aquela conhecida pergunta ainda sem resposta: quem eu sou, e o que eu vim fazer aqui?</p>
+          </div>
+          <p className="closing-line">As águas conhecem o caminho.</p>
+        </div>
+      </section>
+
+      <WaveDivider />
+
+      <section className="section-shell origin-section">
+        <div className="content-grid">
+          <VideoCard />
+          <div className="origin-copy">
+            <SectionLabel>De onde vem essa bênção</SectionLabel>
+            <h2>Uma bênção recebida às margens do Titicaca</h2>
+            <p>
+              Em setembro estive em peregrinação pelo Peru. Entrei num barco até o centro do Lago
+              Titicaca, o lago navegável mais alto do planeta, e entreguei três folhas de coca às
+              suas águas, me apresentando.
+            </p>
+            <p>
+              O Titicaca é considerado o segundo chakra da Terra, e ali as águas são chamadas de
+              Mama Cocha, a Mãe Água. São águas sagradas, que guardam mistérios, símbolos e
+              histórias vivas até hoje.
+            </p>
+            <p className="origin-highlight">O que recebi delas é o que trago para esta vivência.</p>
+          </div>
+        </div>
+
+        <div className="water-gallery" aria-label="Águas e paisagens do Lago Titicaca">
+          <figure className="gallery-tall">
+            <img src="/galeria-altar.jpg" alt="Altar de pedra diante do Lago Titicaca" loading="lazy" width={1600} height={1537} />
+          </figure>
+          <figure className="gallery-wide">
+            <img src="/galeria-lago.jpg" alt="Muros de pedra e as águas azuis do Lago Titicaca" loading="lazy" width={1600} height={900} />
+          </figure>
+          <figure className="gallery-small">
+            <img src="/galeria-margem.jpg" alt="Margem de pedras e as águas do Lago Titicaca" loading="lazy" width={1600} height={928} />
+          </figure>
+        </div>
+      </section>
+
+      <section className="deep-section">
+        <WaveDivider dark />
+        <div className="section-shell">
+          <div className="deep-intro">
+            <SectionLabel>O que a bênção trabalha</SectionLabel>
+            <h2>Criação e expressão em harmonia</h2>
+            <p>
+              A Bênção atua nos corpos sutis (energético, de sabedoria e de memória), com foco
+              especial no segundo e no quinto chakras. Eles estão interligados e se refletem na nossa
+              vida em:
+            </p>
+          </div>
+          <ul className="keyword-tags" aria-label="Palavras-chave da vivência">
+            {keywords.map((word) => (
+              <li key={word}>{word}</li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      <section className="section-shell journey-section">
+        <div className="journey-heading">
+          <SectionLabel>A jornada</SectionLabel>
+          <h2>O que você vai viver em 3 horas</h2>
+          <p>Um encontro de presença, conhecimento e reconexão com a inteligência das águas.</p>
+        </div>
+        <ol className="journey-list">
+          {journeyItems.map((item, index) => (
+            <li key={item}>
+              <span>{String(index + 1).padStart(2, "0")}</span>
+              <p>{item}</p>
+            </li>
+          ))}
+        </ol>
+        <div className="bonus-band">
+          <Gift aria-hidden="true" size={28} strokeWidth={1.3} />
+          <div>
+            <strong>Bônus</strong>
+            <p>Áudio de Conexão para você manter uma prática diária.</p>
+          </div>
+        </div>
+        <div className="centered-action"><SignupLink>Quero viver essa jornada</SignupLink></div>
+      </section>
+
+      <section className="audience-section">
+        <div className="section-shell">
+          <div className="audience-head">
+            <SectionLabel>Para quem é</SectionLabel>
+            <h2>Para quem é essa vivência</h2>
+            <p>Você não precisa ter experiência prévia. Só disponibilidade para estar presente.</p>
+          </div>
+          <div className="audience-columns">
+            <div className="audience-card">
+              <h3>É para você que busca…</h3>
+              <div className="audience-list">
+                {audienceItems.map((item) => (
+                  <div key={item}>
+                    <Check aria-hidden="true" size={18} strokeWidth={1.8} />
+                    <p>{item}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="audience-card audience-card-not">
+              <h3>Não é para você que…</h3>
+              <div className="audience-list">
+                {notForItems.map((item) => (
+                  <div key={item}>
+                    <X aria-hidden="true" size={18} strokeWidth={1.8} />
+                    <p>{item}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="centered-action"><SignupLink>Essa vivência é para mim</SignupLink></div>
+      </section>
+
+      <section className="section-shell testimonials-section">
+        <SectionLabel>Depoimentos</SectionLabel>
+        <h2>O que dizem sobre o trabalho com a Alice</h2>
+        <div className="testimonial-grid">
+          {testimonials.map((item) => (
+            <blockquote key={item.text}>
+              <Sparkles aria-hidden="true" size={20} strokeWidth={1.3} />
+              <p>“{item.text}”</p>
+              <footer>{item.name}{item.city ? <span>· {item.city}</span> : null}</footer>
+            </blockquote>
+          ))}
+        </div>
+      </section>
+
+      <ChakanaDivider />
+
+      <section className="guide-section">
+        <div className="section-shell guide-grid">
+          <img
+            src="/alice-bio.jpg"
+            alt="Alice Chaves, com o Lago Titicaca e um portal com a chakana ao fundo"
+            className="portrait-photo"
+            style={{ objectPosition: "center" }}
+            loading="lazy"
+          />
+          <div className="guide-copy">
+            <SectionLabel>Quem conduz</SectionLabel>
+            <h2>Alice Chaves</h2>
+            <p className="guide-role">Terapeuta holística, pesquisadora e viajante</p>
+            <p>
+              Conduzo encontros e atendimentos desde 2018, com mais de 600 horas de formação, entre
+              elas: Leitura de Memórias e Cura Akáshica, Respiração Biodinâmica e Liberação de
+              Traumas e Mestrado em Reiki Usui.
+            </p>
+            <p>
+              O que me move é traduzir o invisível em práticas com os pés no chão, e trazer leveza
+              com profundidade para os processos de autoconhecimento e espiritualidade.
+            </p>
+            <p className="guide-registry">Registro profissional CRTH-BR 20291</p>
+          </div>
+        </div>
+      </section>
+
+      <section className="investment-section">
+        <ChakanaIcon className="chakana-watermark" />
+        <div className="section-shell">
+          <SectionLabel>Inscrição</SectionLabel>
+          <h2>Bênção das Águas</h2>
+          <p className="edition-tag edition-tag-solo">Edição Primavera 2026</p>
+          <div className="offer-meta">
+            <p>Vivência online e ao vivo pelo Zoom · domingo, 18 de outubro de 2026, das 9h às 12h (Brasília)</p>
+            <p>Gravação disponível por 30 dias</p>
+          </div>
+          <div className="offer-grid">
+            <div className="included-box">
+              <h3>O que está incluído</h3>
+              <ul>
+                {includedItems.map((item) => (
+                  <li key={item}><Check aria-hidden="true" size={16} strokeWidth={2} /><span>{item}</span></li>
+                ))}
+              </ul>
+              <div className="guarantee">
+                <ShieldCheck aria-hidden="true" size={26} strokeWidth={1.4} />
+                <p><strong>Garantia de 7 dias.</strong> Se sentir que não é para você, basta pedir e devolvemos 100% do valor.</p>
+              </div>
+            </div>
+            <div className="price-grid">
+              <article className="price-card featured">
+                <span className="availability"><b>Disponível</b><b>agora</b></span>
+                <p>Lote 1</p>
+                <div className="price"><small>R$</small><strong>111</strong></div>
+                <span>até 09/10 · ou em até 12x de R$11,71</span>
+                <SignupLink>Garantir minha vaga no Lote 1</SignupLink>
+              </article>
+              <article className="price-card">
+                <p>Lote 2</p>
+                <div className="price"><small>R$</small><strong>144</strong></div>
+                <span>a partir de 10/10 · ou em até 12x de R$15,19</span>
+                <p className="later-note">Disponível após o encerramento do primeiro lote.</p>
+              </article>
+              <p className="secure-note">Pagamento seguro pelo Sympla.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="section-shell ayni-section">
+        <div className="narrow-copy">
+          <SectionLabel>Ayni</SectionLabel>
+          <h2>Receber e devolver</h2>
+          <p>
+            Na cosmologia andina, Ayni é o princípio da reciprocidade: aquilo que recebemos da vida
+            também nos convida a oferecer algo de volta.
+          </p>
+          <p>
+            Por isso, a Bênção das Águas não termina em nós. Uma parte de cada inscrição será
+            destinada a uma iniciativa que cuida das águas, dos territórios e das comunidades que
+            delas dependem. A cada edição, alguma iniciativa é cuidadosamente selecionada e
+            contemplada.
+          </p>
+          <p className="closing-line">
+            Ao participar, você entra em um ciclo maior de reciprocidade. É o nosso Ayni.
+          </p>
+        </div>
+      </section>
+
+      <section className="section-shell faq-section">
+        <div className="faq-heading">
+          <SectionLabel>Dúvidas</SectionLabel>
+          <h2>Perguntas frequentes</h2>
+        </div>
+        <div className="faq-list">
+          {faqItems.map((item) => (
+            <details key={item.question}>
+              <summary>{item.question}<span aria-hidden="true">+</span></summary>
+              <p>{item.answer}</p>
+            </details>
+          ))}
+        </div>
+      </section>
+
+      <footer className="site-footer">
+        <div className="footer-symbol"><Waves aria-hidden="true" size={30} strokeWidth={1} /></div>
+        <h2>Que as águas abram os seus caminhos mais leves e verdadeiros.</h2>
+        <SignupLink light>Sim, quero participar</SignupLink>
+        <div className="footer-bottom">
+          <div className="footer-brand">Alice Chaves</div>
+          <nav aria-label="Redes e contato">
+            <a href="https://www.instagram.com/alichaves" target="_blank" rel="noreferrer"><Instagram aria-hidden="true" size={17} /> Instagram</a>
+            <a href="https://wa.me/5531991354712" target="_blank" rel="noreferrer"><MessageCircle aria-hidden="true" size={17} /> WhatsApp</a>
+            <a href="mailto:alicechaves@gmail.com"><Mail aria-hidden="true" size={17} /> E-mail</a>
+          </nav>
+          <p>Esta vivência é uma prática energética e não substitui acompanhamento médico ou terapêutico.</p>
+        </div>
+        <p className="copyright">© 2026 Alice Chaves · CNPJ 38.022.989/0001-07 · Todos os direitos reservados.</p>
+      </footer>
+    </main>
+  );
 }
