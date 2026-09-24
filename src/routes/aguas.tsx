@@ -20,7 +20,7 @@ import {
 } from "lucide-react";
 
 
-const paymentLink = "https://www.sympla.com.br/evento-online/bencao-das-aguas-edicao-primavera-26/3589447";
+const paymentLink = "https://www.sympla.com.br/evento-online/bencao-das-aguas-edicao-primavera-26/3593643";
 const youtubeLink = "https://youtube.com/shorts/hfge3eNAZaA";
 
 export const Route = createFileRoute("/aguas")({
@@ -469,6 +469,9 @@ function Index() {
             <p>
               O que me move é traduzir o invisível em práticas com os pés no chão, e trazer leveza
               com profundidade para os processos de autoconhecimento e espiritualidade.
+            </p>
+            <p>
+              Sou mãe da Liz e a parte humana cocriadora do Casa Templo e da Frequência das Baleias.
             </p>
             <p className="guide-registry">Registro profissional CRTH-BR 20291</p>
           </div>
